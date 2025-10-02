@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useCart } from '../contexts/CartContext';
+import { useLanguage } from '../contexts/LanguageContext';
 
 // Add toast animation styles to the document head
 if (typeof document !== 'undefined' && !document.getElementById('toast-animations')) {
@@ -127,16 +128,47 @@ const nonVegPickles = [
 // --- Combo Options Configuration ---
 const comboOptions = {
   // Veg Combos
-  largeVegCombo: { label: 'Large Veg Combo (12 items)', type: 'veg', count: 12, discount: 0.30 },
-  mediumVegCombo: { label: 'Medium Veg Combo (8 items)', type: 'veg', count: 8, discount: 0.25 },
-  smallVegCombo: { label: 'Small Veg Combo (4 items)', type: 'veg', count: 4, discount: 0.20 },
+  largeVegCombo: { 
+    label_en: 'Large Veg Combo (12 items)', 
+    label_te: 'లార్జ్ వెజ్ కాంబో (12 ఐటెమ్స్)', 
+    type: 'veg', 
+    count: 12, 
+    discount: 0.30 
+  },
+  mediumVegCombo: { 
+    label_en: 'Medium Veg Combo (8 items)', 
+    label_te: 'మీడియం వెజ్ కాంబో (8 ఐటెమ్స్)', 
+    type: 'veg', 
+    count: 8, 
+    discount: 0.25 
+  },
+  smallVegCombo: { 
+    label_en: 'Small Veg Combo (4 items)', 
+    label_te: 'స్మాల్ వెజ్ కాంబో (4 ఐటెమ్స్)', 
+    type: 'veg', 
+    count: 4, 
+    discount: 0.20 
+  },
   // Mixed Combos
-  largeMixedCombo: { label: 'Large Mixed Combo (12 items)', type: 'mixed', count: 12, discount: 0.25 },
-  mediumMixedCombo: { label: 'Medium Mixed Combo (8 items)', type: 'mixed', count: 8, discount: 0.20 },
+  largeMixedCombo: { 
+    label_en: 'Large Mixed Combo (12 items)', 
+    label_te: 'లార్జ్ మిక్స్డ్ కాంబో (12 ఐటెమ్స్)', 
+    type: 'mixed', 
+    count: 12, 
+    discount: 0.25 
+  },
+  mediumMixedCombo: { 
+    label_en: 'Medium Mixed Combo (8 items)', 
+    label_te: 'మీడియం మిక్స్డ్ కాంబో (8 ఐటెమ్స్)', 
+    type: 'mixed', 
+    count: 8, 
+    discount: 0.20 
+  },
 };
 
 const ComboSection = () => {
   const { addComboToCart, openCart } = useCart();
+  const { currentLanguage, getText } = useLanguage();
   const [selectedProductIds, setSelectedProductIds] = useState([]);
   const [selectedComboKey, setSelectedComboKey] = useState('smallVegCombo'); // Default selection
   const [validationError, setValidationError] = useState('');
@@ -144,6 +176,11 @@ const ComboSection = () => {
   const [toastMessage, setToastMessage] = useState('');
 
   const currentCombo = comboOptions[selectedComboKey];
+
+  // Helper function to get combo label in current language
+  const getComboLabel = (combo) => {
+    return currentLanguage === 'te' ? combo.label_te : combo.label_en;
+  };
 
   // Combine all products for easy lookup
   const allProducts = [...vegPickles, ...nonVegPickles];
@@ -159,7 +196,10 @@ const ComboSection = () => {
   useEffect(() => {
     const validateSelection = () => {
       if (selectedProductIds.length !== currentCombo.count) {
-        setValidationError(`Please select exactly ${currentCombo.count} items for the ${currentCombo.label}. You have selected ${selectedProductIds.length}.`);
+        const comboLabel = getComboLabel(currentCombo);
+        const errorMessageEn = `Please select exactly ${currentCombo.count} items for the ${comboLabel}. You have selected ${selectedProductIds.length}.`;
+        const errorMessageTe = `దయచేసి ${comboLabel} కోసం సరిగ్గా ${currentCombo.count} ఐటెమ్లను ఎంచుకోండి. మీరు ${selectedProductIds.length} ఎంచుకున్నారు.`;
+        setValidationError(getText(errorMessageEn, errorMessageTe));
         return false;
       }
       setValidationError('');
@@ -167,7 +207,7 @@ const ComboSection = () => {
     };
     
     validateSelection();
-  }, [selectedProductIds, selectedComboKey, currentCombo.count, currentCombo.label]);
+  }, [selectedProductIds, selectedComboKey, currentCombo.count, getComboLabel, getText]);
 
   const handleProductSelection = (productId) => {
     let updatedSelection;
@@ -184,14 +224,19 @@ const ComboSection = () => {
     if (currentComboType === 'veg') {
         const nonVegInSelection = newSelectedProductsFull.filter(p => p.type === 'non-veg');
         if (nonVegInSelection.length > 0) {
-            alert("You cannot select non-veg pickles for a 'Veg Pickles Combo'. Please switch to a 'Mixed Combo' if you wish to include them.");
+            const alertMessageEn = "You cannot select non-veg pickles for a 'Veg Pickles Combo'. Please switch to a 'Mixed Combo' if you wish to include them.";
+            const alertMessageTe = "మీరు 'వెజ్ పిక్లెస్ కాంబో' కోసం నాన్-వెజ్ పిక్లెస్ ఎంచుకోలేరు. వాటిని చేర్చాలనుకుంటే దయచేసి 'మిక్స్డ్ కాంబో'కి మార్చండి.";
+            alert(getText(alertMessageEn, alertMessageTe));
             return; // Prevent adding non-veg if in veg combo mode
         }
     }
     
     // Prevent selecting more than the combo allows
     if (updatedSelection.length > currentCombo.count && !selectedProductIds.includes(productId)) {
-        setValidationError(`You can select a maximum of ${currentCombo.count} items for the ${currentCombo.label}.`);
+        const comboLabel = getComboLabel(currentCombo);
+        const errorMessageEn = `You can select a maximum of ${currentCombo.count} items for the ${comboLabel}.`;
+        const errorMessageTe = `మీరు ${comboLabel} కోసం గరిష్టంగా ${currentCombo.count} ఐటెమ్లను ఎంచుకోవచ్చు.`;
+        setValidationError(getText(errorMessageEn, errorMessageTe));
         return; 
     } else {
         setValidationError('');
@@ -274,7 +319,7 @@ const ComboSection = () => {
     // Create combo data for cart
     const comboData = {
       comboType: selectedComboKey,
-      comboLabel: currentCombo.label,
+      comboLabel: getComboLabel(currentCombo),
       items: selectedProducts,
       originalPrice: subtotal,
       discountPercentage: Math.round(currentCombo.discount * 100),
@@ -292,17 +337,29 @@ const ComboSection = () => {
     setSelectedProductIds([]);
 
     // Show success toast notification
-    showToast(`🎉 ${currentCombo.label} added to cart successfully! Saved ₹${discountAmount.toFixed(0)}`);
+    const comboLabel = getComboLabel(currentCombo);
+    const toastMessageEn = `🎉 ${comboLabel} added to cart successfully! Saved ₹${discountAmount.toFixed(0)}`;
+    const toastMessageTe = `🎉 ${comboLabel} విజయవంతంగా కార్ట్‌కు జోడించబడింది! ₹${discountAmount.toFixed(0)} ఆదా చేశారు`;
+    showToast(getText(toastMessageEn, toastMessageTe));
   };
 
   return (
     <div style={styles.comboSection}>
-      <h2 style={styles.heading}> Customize Your Pickle Combo</h2>
-      <p style={styles.subHeading}>Choose your favorite pickles and save with our combo offers!</p>
+      <h2 style={styles.heading}>
+        {getText('🥒 Customize Your Pickle Combo', '🥒 మీ పచ్చడి కాంబోను అనుకూలీకరించుకోండి')}
+      </h2>
+      <p style={styles.subHeading}>
+        {getText(
+          'Choose your favorite pickles and save with our combo offers!',
+          'మీకు ఇష్టమైన పచ్చడలను ఎంచుకోండి మరియు మా కాంబో ఆఫర్లతో ఆదా చేసుకోండి!'
+        )}
+      </p>
 
       {/* Combo Type Selection */}
       <div style={styles.comboOptionsContainer}>
-        <h3 style={styles.sectionTitle}> Choose Your Combo Type </h3>
+        <h3 style={styles.sectionTitle}>
+          {getText('🎯 Choose Your Combo Type', '🎯 మీ కాంబో రకాన్ని ఎంచుకోండి')}
+        </h3>
         <p style={{
           textAlign: 'center',
           color: '#636e72',
@@ -310,7 +367,10 @@ const ComboSection = () => {
           marginBottom: '25px',
           fontStyle: 'italic'
         }}>
-          Select the perfect combo size and enjoy amazing savings!
+          {getText(
+            'Select the perfect combo size and enjoy amazing savings!',
+            'పర్ఫెక్ట్ కాంబో సైజ్ ని ఎంచుకోండి మరియు అద్భుతమైన ఆదాను ఆస్వాదించండి!'
+          )}
         </p>
         <div style={styles.comboGrid} className="combo-options-grid">
           {Object.entries(comboOptions).map(([key, combo]) => {
@@ -342,7 +402,7 @@ const ComboSection = () => {
                     ...styles.comboTitle,
                     ...(isSelected ? { color: '#e17055' } : {})
                   }}>
-                    {combo.label}
+                    {getComboLabel(combo)}
                   </span>
                   <span style={{
                     ...styles.comboDiscount,
@@ -352,7 +412,7 @@ const ComboSection = () => {
                       border: '2px solid #d63031'
                     } : {})
                   }}>
-                     Save {Math.round(combo.discount * 100)}%
+                     {getText(`💰 Save ${Math.round(combo.discount * 100)}%`, `💰 ${Math.round(combo.discount * 100)}% ఆదా`)}
                   </span>
                   {isSelected && (
                     <span style={{
@@ -361,7 +421,7 @@ const ComboSection = () => {
                       fontWeight: '500',
                       marginTop: '4px'
                     }}>
-                       Currently Selected
+                       {getText('✅ Currently Selected', '✅ ప్రస్తుతం ఎంచుకోబడింది')}
                     </span>
                   )}
                 </div>
@@ -394,7 +454,9 @@ const ComboSection = () => {
       <div style={styles.productsContainer}>
         {/* Veg Pickles */}
         <div style={styles.categorySection}>
-          <h3 style={styles.productCategoryHeading}>🥒 Vegetarian Pickles (250g each)</h3>
+          <h3 style={styles.productCategoryHeading}>
+            {getText('🥒 Vegetarian Pickles (250g each)', '🥒 శాఖాహార పచ్చడలు (ప్రతి ఒక్కటి 250గ్రాముల)')}
+          </h3>
           <div style={styles.grid} className="combo-grid">
             {vegPickles.map((pickle) => (
               <div
@@ -428,7 +490,9 @@ const ComboSection = () => {
         {/* Non-Veg Pickles (only if current combo allows mixed) */}
         {currentCombo.type === 'mixed' && (
           <div style={styles.categorySection}>
-            <h3 style={styles.productCategoryHeading}>🍗 Non-Vegetarian Pickles (250g each)</h3>
+            <h3 style={styles.productCategoryHeading}>
+              {getText('🍗 Non-Vegetarian Pickles (250g each)', '🍗 మాంసాహార పచ్చడలు (ప్రతి ఒక్కటి 250గ్రాముల)')}
+            </h3>
             <div style={styles.grid} className="combo-grid">
               {nonVegPickles.map((pickle) => (
                 <div
@@ -470,20 +534,28 @@ const ComboSection = () => {
         )}
         <div style={styles.selectionInfo}>
           <p style={styles.selectionCount}>
-            Selected Items: <strong>{selectedProductIds.length} / {currentCombo.count}</strong>
+            {getText(
+              `📝 Selected Items: ${selectedProductIds.length} / ${currentCombo.count}`,
+              `📝 ఎంచుకున్న వస్తువులు: ${selectedProductIds.length} / ${currentCombo.count}`
+            )}
           </p>
         </div>
         <div style={styles.priceBreakdown}>
           <div style={styles.priceRow}>
-            <span>Subtotal:</span>
+            <span>{getText('💵 Subtotal:', '💵 ఉప మొత్తం:')}</span>
             <span>₹{subtotal.toFixed(0)}</span>
           </div>
           <div style={styles.priceRow}>
-            <span style={styles.discountText}>Discount ({Math.round(currentCombo.discount * 100)}%):</span>
+            <span style={styles.discountText}>
+              {getText(
+                `🎉 Discount (${Math.round(currentCombo.discount * 100)}%):`,
+                `🎉 డిస్కౌంట్ (${Math.round(currentCombo.discount * 100)}%):`
+              )}
+            </span>
             <span style={styles.discountAmount}>-₹{discountAmount.toFixed(0)}</span>
           </div>
           <div style={styles.finalPriceRow}>
-            <span>Final Price:</span>
+            <span>{getText('🏷️ Final Price:', '🏷️ చివరి ధర:')}</span>
             <span style={styles.finalPrice}>₹{finalPrice.toFixed(0)}</span>
           </div>
         </div>
@@ -496,7 +568,7 @@ const ComboSection = () => {
           disabled={!isSelectionValid}
           onClick={handleAddToCart}
         >
-          🛒 Add Combo to Cart
+          {getText('🛒 Add Combo to Cart', '🛒 కాంబోను కార్ట్‌కు జోడించండి')}
         </button>
       </div>
 
@@ -516,7 +588,7 @@ const ComboSection = () => {
 // --- Inline CSS Styles ---
 const styles = {
   comboSection: {
-    fontFamily: "'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    fontFamily: "'Noto Sans Telugu', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
     backgroundColor: '#f9f9f9',
     padding: '40px 20px',
     borderRadius: '12px',
