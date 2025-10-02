@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineSearch, AiOutlineClear } from 'react-icons/ai';
 import { useLanguage } from '../contexts/LanguageContext';
-import { PRODUCTS, CATEGORIES } from '../data/products';
+import { PRODUCTS } from '../data/products';
 import './LiveSearch.css';
 
 const LiveSearch = ({ isOpen, onClose, className }) => {
@@ -147,6 +147,9 @@ const LiveSearch = ({ isOpen, onClose, className }) => {
         setShowSuggestions(false);
         onClose?.();
         break;
+      default:
+        // No action for other keys
+        break;
     }
   };
 
@@ -176,19 +179,6 @@ const LiveSearch = ({ isOpen, onClose, className }) => {
     setSuggestions([]);
     setShowSuggestions(false);
     searchInputRef.current?.focus();
-  };
-
-  const getCategoryBadgeColor = (category) => {
-    const colors = {
-      [CATEGORIES.VEG]: '#22c55e',
-      [CATEGORIES.NON_VEG]: '#ef4444',
-      [CATEGORIES.KARAM_PODULU]: '#f59e0b',
-      [CATEGORIES.SPECIALS]: '#8b5cf6',
-      [CATEGORIES.SWEETS]: '#ec4899',
-      [CATEGORIES.ANDHRA_SPECIAL]: '#f97316',
-      [CATEGORIES.HOT]: '#dc2626'
-    };
-    return colors[category] || '#6b7280';
   };
 
   const getProductPrice = (product) => {

@@ -116,8 +116,17 @@ const ComboSection = () => {
 
   // Effect to re-validate whenever selected products or combo type changes
   useEffect(() => {
+    const validateSelection = () => {
+      if (selectedProductIds.length !== currentCombo.count) {
+        setValidationError(`Please select exactly ${currentCombo.count} items for the ${currentCombo.label}. You have selected ${selectedProductIds.length}.`);
+        return false;
+      }
+      setValidationError('');
+      return true;
+    };
+    
     validateSelection();
-  }, [selectedProductIds, selectedComboKey]);
+  }, [selectedProductIds, selectedComboKey, currentCombo.count, currentCombo.label]);
 
   const handleProductSelection = (productId) => {
     let updatedSelection;
@@ -170,15 +179,6 @@ const ComboSection = () => {
 
     setSelectedComboKey(newComboKey);
     setValidationError(''); // Clear validation errors on combo change
-  };
-
-  const validateSelection = () => {
-    if (selectedProductIds.length !== currentCombo.count) {
-      setValidationError(`Please select exactly ${currentCombo.count} items for the ${currentCombo.label}. You have selected ${selectedProductIds.length}.`);
-      return false;
-    }
-    setValidationError('');
-    return true;
   };
 
   const calculateTotal = () => {

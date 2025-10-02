@@ -5,12 +5,11 @@ import { getProductPrice } from '../data/products';
 import './ProductModal.css';
 
 const ProductModal = ({ product, isOpen, onClose }) => {
-  const { getText, currentLanguage } = useLanguage();
+  const { currentLanguage } = useLanguage();
   const { addToCart, getItemQuantity } = useCart();
   const [selectedSize, setSelectedSize] = useState('500g');
   const [quantity, setQuantity] = useState(1);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
-  const [viewMode, setViewMode] = useState('image');
 
   // Reset modal state when product changes
   useEffect(() => {

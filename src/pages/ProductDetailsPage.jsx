@@ -16,7 +16,6 @@ const ProductDetailsPage = () => {
   const [product, setProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState('');
   const [quantity, setQuantity] = useState(1);
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   // Find product by ID

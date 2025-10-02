@@ -55,12 +55,12 @@ const Footer = () => {
                     <div className="social-links">
                         <h4>{content.followUs}</h4>
                         <div className="social-icons">
-                            <a href="#" className="social-icon facebook">
+                            <button className="social-icon facebook" onClick={() => console.log('Facebook coming soon')}>
                                 <FaFacebook />
-                            </a>
-                            <a href="#" className="social-icon instagram">
+                            </button>
+                            <button className="social-icon instagram" onClick={() => console.log('Instagram coming soon')}>
                                 <FaInstagram />
-                            </a>
+                            </button>
                             <a href="https://wa.me/919876543210" className="social-icon whatsapp">
                                 <FaWhatsapp />
                             </a>

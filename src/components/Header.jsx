@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { AiOutlineShoppingCart, AiOutlineMenu, AiOutlineClose, AiOutlineSearch } from 'react-icons/ai';
 import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 import { MdLanguage } from 'react-icons/md';
@@ -13,9 +13,9 @@ import Logo from '../assets/logo.png';
 const Navbar = ({ onCartToggle }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
-    const [searchQuery, setSearchQuery] = useState('');
+    // const [searchQuery, setSearchQuery] = useState('');
     const [isScrolled, setIsScrolled] = useState(false);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const { currentLanguage, toggleLanguage, getText } = useLanguage();
     const { getTotalItems } = useCart();
@@ -79,14 +79,10 @@ const Navbar = ({ onCartToggle }) => {
 
     const toggleSearch = () => {
         setIsSearchOpen(!isSearchOpen);
-        if (isSearchOpen) {
-            setSearchQuery('');
-        }
     };
 
     const handleSearchClose = () => {
         setIsSearchOpen(false);
-        setSearchQuery('');
     };
 
     return (

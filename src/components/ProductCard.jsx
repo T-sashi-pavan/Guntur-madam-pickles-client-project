@@ -6,11 +6,10 @@ import "./ProductCard.css";
 
 const ProductCard = ({ product }) => {
   const [selectedSize, setSelectedSize] = useState("");
-  const [quantity, setQuantity] = useState(1); // Quantity is still managed, but controls are hidden
   const [imageLoaded, setImageLoaded] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  const { addToCart, isInCart, getItemQuantity } = useCart();
+  const { addToCart, isInCart } = useCart();
   const { currentLanguage } = useLanguage();
 
   // Get product name based on current language
@@ -37,17 +36,6 @@ const ProductCard = ({ product }) => {
 
   const handleSizeSelect = (size) => {
     setSelectedSize(size);
-    // Quantity remains 1 when size is changed, as controls are hidden
-    setQuantity(1); 
-  };
-
-  // Quantity change handler is not directly used by visible buttons
-  // but kept for potential future use or if adding via modal
-  const handleQuantityChange = (delta) => {
-    const newQuantity = quantity + delta;
-    if (newQuantity >= 1 && newQuantity <= 10) {
-      setQuantity(newQuantity);
-    }
   };
 
   const handleAddToCart = () => {

@@ -6,6 +6,45 @@ import ProductCard from '../components/ProductCard';
 import SearchAndFilter from '../components/SearchAndFilter';
 import './CategoryPage.css';
 
+// Category mappings for display names
+const categoryMappings = {
+  'veg': {
+    key: CATEGORIES.VEG,
+    en: 'Vegetable Pickles',
+    te: 'కూరగాయల పచ్చడి'
+  },
+  'non-veg': {
+    key: CATEGORIES.NON_VEG,
+    en: 'Non-Vegetarian Pickles',
+    te: 'మాంసం పచ్చడి'
+  },
+  'specials': {
+    key: CATEGORIES.SPECIALS,
+    en: 'Our Special Pickles',
+    te: 'మా స్పెషల్ పచ్చడి'
+  },
+  'karam-podulu': {
+    key: CATEGORIES.KARAM_PODULU,
+    en: 'Spice Powders',
+    te: 'కారం పొడులు'
+  },
+  'sweets': {
+    key: CATEGORIES.SWEETS,
+    en: 'Traditional Sweets',
+    te: 'స్వీట్స్'
+  },
+  'andhra-special': {
+    key: CATEGORIES.ANDHRA_SPECIAL,
+    en: 'Andhra Special',
+    te: 'ఆంధ్రా స్పెషల్'
+  },
+  'hot': {
+    key: CATEGORIES.HOT,
+    en: 'Hot & Spicy',
+    te: 'కారం'
+  }
+};
+
 const CategoryPage = ({ onProductClick }) => {
   const { category } = useParams();
   const { getText, currentLanguage } = useLanguage();
@@ -14,45 +53,6 @@ const CategoryPage = ({ onProductClick }) => {
   const [currentSortBy, setCurrentSortBy] = useState('name');
   const [searchQuery, setSearchQuery] = useState('');
   const [priceRange, setPriceRange] = useState('all');
-
-  // Category mappings for display names
-  const categoryMappings = {
-    'veg': {
-      key: CATEGORIES.VEG,
-      en: 'Vegetable Pickles',
-      te: 'కూరగాయల పచ్చడి'
-    },
-    'non-veg': {
-      key: CATEGORIES.NON_VEG,
-      en: 'Non-Vegetarian Pickles',
-      te: 'మాంసం పచ్చడి'
-    },
-    'specials': {
-      key: CATEGORIES.SPECIALS,
-      en: 'Our Special Pickles',
-      te: 'మా స్పెషల్ పచ్చడి'
-    },
-    'karam-podulu': {
-      key: CATEGORIES.KARAM_PODULU,
-      en: 'Spice Powders',
-      te: 'కారం పొడులు'
-    },
-    'sweets': {
-      key: CATEGORIES.SWEETS,
-      en: 'Traditional Sweets',
-      te: 'స్వీట్స్'
-    },
-    'andhra-special': {
-      key: CATEGORIES.ANDHRA_SPECIAL,
-      en: 'Andhra Special',
-      te: 'ఆంధ్రా స్పెషల్'
-    },
-    'hot': {
-      key: CATEGORIES.HOT,
-      en: 'Hot & Spicy',
-      te: 'కారం'
-    }
-  };
 
   useEffect(() => {
     const allProducts = PRODUCTS;
