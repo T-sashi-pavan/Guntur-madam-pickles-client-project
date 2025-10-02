@@ -240,10 +240,10 @@ const Navbar = ({ onCartToggle }) => {
                             <div className="mobile-menu-footer">
                                 <div className="mobile-phone">
                                     <FaPhoneAlt />
-                                    <span>+91 7330775225</span>
+                                    <span>+91 77027 21323</span>
                                 </div>
                                 <a 
-                                    href="https://wa.me/917330775225" 
+                                    href="https://wa.me/7702721323" 
                                     className="whatsapp-link"
                                     target="_blank"
                                     rel="noopener noreferrer"
