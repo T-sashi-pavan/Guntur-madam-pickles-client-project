@@ -1,0 +1,11 @@
+# Netlify redirect rules for SPA (Single Page Application)
+# This tells Netlify to serve index.html for all routes and let React Router handle client-side routing
+
+# Redirect all routes to index.html with 200 status (not 404)
+/*    /index.html   200
+
+# Optional: Redirect old paths if you have any
+# /old-path    /new-path    301
+
+# API routes should be handled before the catch-all rule if you have any
+# /api/*    https://your-api-domain.com/api/:splat    200
