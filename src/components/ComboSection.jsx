@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useCart } from '../contexts/CartContext';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -178,9 +178,9 @@ const ComboSection = () => {
   const currentCombo = comboOptions[selectedComboKey];
 
   // Helper function to get combo label in current language
-  const getComboLabel = (combo) => {
+  const getComboLabel = useCallback((combo) => {
     return currentLanguage === 'te' ? combo.label_te : combo.label_en;
-  };
+  }, [currentLanguage]);
 
   // Combine all products for easy lookup
   const allProducts = [...vegPickles, ...nonVegPickles];
@@ -207,7 +207,7 @@ const ComboSection = () => {
     };
     
     validateSelection();
-  }, [selectedProductIds, selectedComboKey, currentCombo.count, getComboLabel, getText]);
+  }, [selectedProductIds, selectedComboKey, currentCombo, getComboLabel, getText]);
 
   const handleProductSelection = (productId) => {
     let updatedSelection;
