@@ -148,6 +148,13 @@ const ComboSection = () => {
   // Combine all products for easy lookup
   const allProducts = [...vegPickles, ...nonVegPickles];
 
+  // Function to calculate 250g price from 1kg price
+  const get250gPrice = (product) => {
+    // Assuming the price in product data is for 1kg (1000g)
+    // Calculate 250g price: (1kg price / 4) = 250g price
+    return Math.round(product.price / 4);
+  };
+
   // Effect to re-validate whenever selected products or combo type changes
   useEffect(() => {
     const validateSelection = () => {
@@ -220,7 +227,8 @@ const ComboSection = () => {
     selectedProductIds.forEach((id) => {
       const product = allProducts.find((p) => p.id === id);
       if (product) {
-        subtotal += product.price;
+        // Use 250g price instead of 1kg price
+        subtotal += get250gPrice(product);
       }
     });
 
@@ -256,7 +264,7 @@ const ComboSection = () => {
       return {
         id: product.id,
         name: product.name,
-        price: product.price,
+        price: get250gPrice(product), // Use 250g price for cart
         image: product.image,
         type: product.type,
         size: '250g'
@@ -402,7 +410,7 @@ const ComboSection = () => {
                 <div style={styles.productInfo}>
                   <h4 style={styles.productName} className="combo-product-name">{pickle.name}</h4>
                   <p style={styles.productWeight}>250g Pack</p>
-                  <p style={styles.productPrice} className="combo-product-price">₹{pickle.price}</p>
+                  <p style={styles.productPrice} className="combo-product-price">₹{get250gPrice(pickle)}</p>
                   <div style={styles.checkboxContainer}>
                     <input
                       type="checkbox"
@@ -436,7 +444,7 @@ const ComboSection = () => {
                   <div style={styles.productInfo}>
                     <h4 style={styles.productName} className="combo-product-name">{pickle.name}</h4>
                     <p style={styles.productWeight}>250g Pack</p>
-                    <p style={styles.productPrice} className="combo-product-price">₹{pickle.price}</p>
+                    <p style={styles.productPrice} className="combo-product-price">₹{get250gPrice(pickle)}</p>
                     <div style={styles.checkboxContainer}>
                       <input
                         type="checkbox"
