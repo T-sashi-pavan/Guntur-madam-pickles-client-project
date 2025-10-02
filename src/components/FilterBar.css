@@ -1,0 +1,295 @@
+/* Filter Bar Container */
+.filter-bar {
+  background: var(--text-light);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 8px 32px var(--shadow-light);
+  margin: 0 var(--spacing-md) var(--spacing-2xl) var(--spacing-md);
+  overflow: hidden;
+  border: 1px solid rgba(242, 147, 75, 0.1);
+}
+
+/* Filter Section */
+.filter-section {
+  padding: var(--spacing-lg);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  border-bottom: 1px solid rgba(242, 147, 75, 0.1);
+}
+
+/* Filter Group */
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-brown);
+  margin-bottom: var(--spacing-xs);
+}
+
+.filter-icon {
+  font-size: 1rem;
+  color: var(--primary-gradient-start);
+}
+
+/* Filter Select */
+.filter-select {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 2px solid var(--bg-cream);
+  border-radius: var(--border-radius);
+  background: var(--text-light);
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--spacing-sm) center;
+  background-size: 16px 12px;
+  padding-right: var(--spacing-2xl);
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--primary-gradient-start);
+  box-shadow: 0 0 0 3px rgba(242, 147, 75, 0.2);
+}
+
+.filter-select:hover {
+  border-color: var(--primary-gradient-start);
+}
+
+/* Category Chips */
+.category-chips {
+  padding: var(--spacing-lg);
+  background: rgba(255, 248, 240, 0.5);
+}
+
+.chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  justify-content: center;
+}
+
+.category-chip {
+  background: var(--text-light);
+  border: 2px solid var(--bg-cream);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-chip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(242, 147, 75, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.category-chip:hover::before {
+  left: 100%;
+}
+
+.category-chip:hover {
+  border-color: var(--primary-gradient-start);
+  background: rgba(242, 147, 75, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--shadow-light);
+}
+
+.category-chip.active {
+  background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
+  color: var(--text-light);
+  border-color: var(--primary-gradient-end);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(242, 147, 75, 0.3);
+}
+
+.category-chip.active:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(242, 147, 75, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .filter-section {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .category-chips {
+    padding: var(--spacing-md);
+  }
+
+  .chips-container {
+    gap: var(--spacing-xs);
+  }
+
+  .category-chip {
+    font-size: 0.8rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-bar {
+    margin: 0 var(--spacing-sm) var(--spacing-xl) var(--spacing-sm);
+  }
+
+  .filter-section {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+  }
+
+  .filter-group {
+    gap: var(--spacing-xs);
+  }
+
+  .filter-label {
+    font-size: 0.85rem;
+  }
+
+  .filter-select {
+    font-size: 0.85rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    padding-right: var(--spacing-xl);
+  }
+
+  .category-chips {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .chips-container {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: var(--spacing-xs);
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-gradient-start) transparent;
+  }
+
+  .chips-container::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .chips-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .chips-container::-webkit-scrollbar-thumb {
+    background: var(--primary-gradient-start);
+    border-radius: 2px;
+  }
+
+  .category-chip {
+    flex-shrink: 0;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-section {
+    padding: var(--spacing-sm);
+  }
+
+  .filter-label {
+    font-size: 0.8rem;
+  }
+
+  .filter-select {
+    font-size: 0.8rem;
+  }
+
+  .category-chips {
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .category-chip {
+    font-size: 0.7rem;
+    padding: 4px var(--spacing-xs);
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .filter-bar {
+    border: 2px solid var(--accent-brown);
+  }
+
+  .filter-select {
+    border-width: 2px;
+  }
+
+  .category-chip {
+    border-width: 2px;
+  }
+
+  .category-chip.active {
+    border: 2px solid var(--text-light);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .category-chip,
+  .filter-select,
+  .category-chip::before {
+    transition: none !important;
+  }
+
+  .category-chip:hover::before {
+    display: none;
+  }
+}
+
+/* Focus Styles for Accessibility */
+.filter-select:focus-visible,
+.category-chip:focus-visible {
+  outline: 3px solid var(--secondary-gold);
+  outline-offset: 2px;
+}
+
+/* Dark Mode Support (if needed in future) */
+@media (prefers-color-scheme: dark) {
+  .filter-bar {
+    background: #2a2a2a;
+    border-color: rgba(242, 147, 75, 0.3);
+  }
+
+  .filter-section {
+    border-bottom-color: rgba(242, 147, 75, 0.3);
+  }
+
+  .filter-select {
+    background: #333;
+    color: #fff;
+    border-color: rgba(242, 147, 75, 0.3);
+  }
+
+  .category-chip {
+    background: #333;
+    color: #fff;
+    border-color: rgba(242, 147, 75, 0.3);
+  }
+}

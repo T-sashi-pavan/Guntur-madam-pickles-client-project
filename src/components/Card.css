@@ -1,0 +1,51 @@
+.left-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-name{
+    display: flex;
+    flex-direction: column;
+}
+
+.card-name > :nth-child(1){
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.card-name > :nth-child(2){
+    font-size: 0.8rem;
+}
+
+.left-card > :nth-child(2){
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.left-card > :nth-child(3){
+    font-size: 0.6rem;
+    border: 1px solid black;
+    padding: 5px 10px;
+    width: max-content;
+    border-radius: 15px;
+}
+
+.product-img{
+    /* rotate: -20deg;
+    position: absolute;
+     width: 40%;
+    height: 100%; 
+    right: 0;
+    bottom: -20%;
+    top: 3rem;
+    width: 6rem;
+    height: 11rem; */
+    rotate: -20deg;
+    position: absolute;
+    width: 40%;
+    /* height: 100%; */
+    right: 0;
+    bottom:0;
+    /* bottom: -20%; */
+}

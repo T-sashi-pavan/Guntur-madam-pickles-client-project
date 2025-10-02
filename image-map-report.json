@@ -1,0 +1,283 @@
+{
+  "timestamp": "2025-09-30T16:54:53.914Z",
+  "summary": {
+    "totalProducts": 28,
+    "totalImages": 20,
+    "mappedCount": 15,
+    "processedImages": 15
+  },
+  "mapping": {
+    "matches": [
+      {
+        "product": "Andhra Avakaya Pickle",
+        "image": "Andhra Avakaya Pickle.png",
+        "matchType": "automatic"
+      },
+      {
+        "product": "Allam Pickle",
+        "image": "Allam Pickle.png",
+        "matchType": "automatic"
+      },
+      {
+        "product": "Garlic Pickle",
+        "image": "Garlic Pickle.png",
+        "matchType": "automatic"
+      },
+      {
+        "product": "Gongura Pickle (with karam)",
+        "image": "Gongura pickle with karam.png",
+        "matchType": "automatic"
+      },
+      {
+        "product": "Gongura Pickle (with Red chilli flakes)",
+        "image": "Gongura Pickle.png",
+        "matchType": "automatic"
+      },
+      {
+        "product": "Chinthakaya Pachadi (Raw)",
+        "image": "Chinthakaya Pachadi (Raw).png",
+        "matchType": "automatic"
+      },
+      {
+        "product": "Lemon Pickle",
+        "image": "Lemon Pickle.png",
+        "matchType": "automatic"
+      },
+      {
+        "product": "Maagaya Pickle",
+        "image": "Maagaya Pickle.png",
+        "matchType": "automatic"
+      },
+      {
+        "product": "Usirikaya Pachadi",
+        "image": "Usirikaya Pachadi.png",
+        "matchType": "automatic"
+      },
+      {
+        "product": "Pudhina Pachadi",
+        "image": "Pudhina Pachadi.png",
+        "matchType": "automatic"
+      },
+      {
+        "product": "Kottimeera Pachadi",
+        "image": "Kottimeera Pachadi.png",
+        "matchType": "automatic"
+      },
+      {
+        "product": "Kakarakai Pachadi",
+        "image": "Kakarakai Pachadi.png",
+        "matchType": "automatic"
+      },
+      {
+        "product": "Cashew Pickle",
+        "image": "Cashew Pickle.png",
+        "matchType": "automatic"
+      },
+      {
+        "product": "Usirikaya Thokudu Pachadi",
+        "image": "Usirikaya Thokudu Pachadi.png",
+        "matchType": "automatic"
+      },
+      {
+        "product": "Cauliflower Avakaya",
+        "image": "Cauliflower Avakaya.png",
+        "matchType": "automatic"
+      }
+    ],
+    "unmatchedProducts": [
+      "Tamota Pickle",
+      "Mango Thurumu Pachadi",
+      "Chicken Boneless Pickle",
+      "Chicken Bones Pickle",
+      "Mutton Boneless Pickle",
+      "Mutton Bones Pickle",
+      "Gongura Chicken Boneless Pickle",
+      "Gongura Chicken Bones Pickle",
+      "Gongura Mutton Boneless Pickle",
+      "Prawns Pickle",
+      "Gongura Prawns Pickle",
+      "Pulihora Gogura Pickle",
+      "Andhra Avakaya Pachadi"
+    ],
+    "unmatchedImages": [
+      "Gongura Pandumirchi Pickle.png",
+      "Mango Thurumu pickle.png",
+      "Pandumirchi Pickle.png",
+      "Sweet Mango Pickle.png",
+      "Tamota Pandumirchi pickle.png"
+    ]
+  },
+  "processedImages": [
+    {
+      "product": "Andhra Avakaya Pickle",
+      "originalImage": "Andhra Avakaya Pickle.png",
+      "webpImages": {
+        "original": "images/veg_pickles/andhra-avakaya-pickle.webp",
+        "variants": [
+          "images/veg_pickles/andhra-avakaya-pickle-400w.webp",
+          "images/veg_pickles/andhra-avakaya-pickle-800w.webp"
+        ]
+      }
+    },
+    {
+      "product": "Allam Pickle",
+      "originalImage": "Allam Pickle.png",
+      "webpImages": {
+        "original": "images/veg_pickles/allam-pickle.webp",
+        "variants": [
+          "images/veg_pickles/allam-pickle-400w.webp",
+          "images/veg_pickles/allam-pickle-800w.webp"
+        ]
+      }
+    },
+    {
+      "product": "Garlic Pickle",
+      "originalImage": "Garlic Pickle.png",
+      "webpImages": {
+        "original": "images/veg_pickles/garlic-pickle.webp",
+        "variants": [
+          "images/veg_pickles/garlic-pickle-400w.webp",
+          "images/veg_pickles/garlic-pickle-800w.webp"
+        ]
+      }
+    },
+    {
+      "product": "Gongura Pickle (with karam)",
+      "originalImage": "Gongura pickle with karam.png",
+      "webpImages": {
+        "original": "images/veg_pickles/gongura-pickle-with-karam.webp",
+        "variants": [
+          "images/veg_pickles/gongura-pickle-with-karam-400w.webp",
+          "images/veg_pickles/gongura-pickle-with-karam-800w.webp"
+        ]
+      }
+    },
+    {
+      "product": "Gongura Pickle (with Red chilli flakes)",
+      "originalImage": "Gongura Pickle.png",
+      "webpImages": {
+        "original": "images/veg_pickles/gongura-pickle.webp",
+        "variants": [
+          "images/veg_pickles/gongura-pickle-400w.webp",
+          "images/veg_pickles/gongura-pickle-800w.webp"
+        ]
+      }
+    },
+    {
+      "product": "Chinthakaya Pachadi (Raw)",
+      "originalImage": "Chinthakaya Pachadi (Raw).png",
+      "webpImages": {
+        "original": "images/veg_pickles/chinthakaya-pachadi-raw.webp",
+        "variants": [
+          "images/veg_pickles/chinthakaya-pachadi-raw-400w.webp",
+          "images/veg_pickles/chinthakaya-pachadi-raw-800w.webp"
+        ]
+      }
+    },
+    {
+      "product": "Lemon Pickle",
+      "originalImage": "Lemon Pickle.png",
+      "webpImages": {
+        "original": "images/veg_pickles/lemon-pickle.webp",
+        "variants": [
+          "images/veg_pickles/lemon-pickle-400w.webp",
+          "images/veg_pickles/lemon-pickle-800w.webp"
+        ]
+      }
+    },
+    {
+      "product": "Maagaya Pickle",
+      "originalImage": "Maagaya Pickle.png",
+      "webpImages": {
+        "original": "images/veg_pickles/maagaya-pickle.webp",
+        "variants": [
+          "images/veg_pickles/maagaya-pickle-400w.webp",
+          "images/veg_pickles/maagaya-pickle-800w.webp"
+        ]
+      }
+    },
+    {
+      "product": "Usirikaya Pachadi",
+      "originalImage": "Usirikaya Pachadi.png",
+      "webpImages": {
+        "original": "images/veg_pickles/usirikaya-pachadi.webp",
+        "variants": [
+          "images/veg_pickles/usirikaya-pachadi-400w.webp",
+          "images/veg_pickles/usirikaya-pachadi-800w.webp"
+        ]
+      }
+    },
+    {
+      "product": "Pudhina Pachadi",
+      "originalImage": "Pudhina Pachadi.png",
+      "webpImages": {
+        "original": "images/veg_pickles/pudhina-pachadi.webp",
+        "variants": [
+          "images/veg_pickles/pudhina-pachadi-400w.webp",
+          "images/veg_pickles/pudhina-pachadi-800w.webp"
+        ]
+      }
+    },
+    {
+      "product": "Kottimeera Pachadi",
+      "originalImage": "Kottimeera Pachadi.png",
+      "webpImages": {
+        "original": "images/veg_pickles/kottimeera-pachadi.webp",
+        "variants": [
+          "images/veg_pickles/kottimeera-pachadi-400w.webp",
+          "images/veg_pickles/kottimeera-pachadi-800w.webp"
+        ]
+      }
+    },
+    {
+      "product": "Kakarakai Pachadi",
+      "originalImage": "Kakarakai Pachadi.png",
+      "webpImages": {
+        "original": "images/veg_pickles/kakarakai-pachadi.webp",
+        "variants": [
+          "images/veg_pickles/kakarakai-pachadi-400w.webp",
+          "images/veg_pickles/kakarakai-pachadi-800w.webp"
+        ]
+      }
+    },
+    {
+      "product": "Cashew Pickle",
+      "originalImage": "Cashew Pickle.png",
+      "webpImages": {
+        "original": "images/veg_pickles/cashew-pickle.webp",
+        "variants": [
+          "images/veg_pickles/cashew-pickle-400w.webp",
+          "images/veg_pickles/cashew-pickle-800w.webp"
+        ]
+      }
+    },
+    {
+      "product": "Usirikaya Thokudu Pachadi",
+      "originalImage": "Usirikaya Thokudu Pachadi.png",
+      "webpImages": {
+        "original": "images/veg_pickles/usirikaya-thokudu-pachadi.webp",
+        "variants": [
+          "images/veg_pickles/usirikaya-thokudu-pachadi-400w.webp",
+          "images/veg_pickles/usirikaya-thokudu-pachadi-800w.webp"
+        ]
+      }
+    },
+    {
+      "product": "Cauliflower Avakaya",
+      "originalImage": "Cauliflower Avakaya.png",
+      "webpImages": {
+        "original": "images/veg_pickles/cauliflower-avakaya.webp",
+        "variants": [
+          "images/veg_pickles/cauliflower-avakaya-400w.webp",
+          "images/veg_pickles/cauliflower-avakaya-800w.webp"
+        ]
+      }
+    }
+  ],
+  "generatedFiles": [
+    "src/components/ResponsiveImage.jsx",
+    "src/components/ResponsiveImage.css",
+    "src/data/products.js (updated)",
+    "public/images/veg_pickles/ (optimized images)"
+  ]
+}

@@ -1,0 +1,424 @@
+/* WhatsAppButton.css */
+.whatsapp-button-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.whatsapp-button-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Tooltip */
+.whatsapp-tooltip {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  animation: tooltipFadeIn 0.3s ease forwards;
+}
+
+.whatsapp-button-container:hover .whatsapp-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.tooltip-content {
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  backdrop-filter: blur(10px);
+}
+
+.tooltip-arrow {
+  position: absolute;
+  top: 100%;
+  right: 1rem;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(0, 0, 0, 0.9);
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Main WhatsApp Button */
+.whatsapp-button {
+  position: relative;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  border: none;
+  border-radius: 50px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 
+    0 8px 25px rgba(37, 211, 102, 0.4),
+    0 4px 10px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  min-width: 60px;
+  min-height: 60px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.whatsapp-button:hover {
+  background: linear-gradient(135deg, #22c55e 0%, #0f766e 100%);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 
+    0 15px 40px rgba(37, 211, 102, 0.5),
+    0 8px 20px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.whatsapp-button.expanded {
+  border-radius: 30px;
+  padding: 1rem 1.5rem;
+  min-width: auto;
+}
+
+.whatsapp-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  transition: all 0.4s ease;
+  font-size: 1.8rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.whatsapp-button:hover .whatsapp-icon {
+  transform: scale(1.15) rotate(5deg);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.whatsapp-content {
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-button.expanded .whatsapp-content {
+  opacity: 1;
+  max-width: 150px;
+  margin-left: 0.5rem;
+}
+
+.cart-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cart-count {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 0.125rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Cart Badge */
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 3px solid white;
+  animation: cartBadgePulse 2s infinite;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+}
+
+@keyframes cartBadgePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.6);
+  }
+}
+
+/* Pulse Ring Animation */
+.pulse-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border: 3px solid rgba(37, 211, 102, 0.4);
+  border-radius: 50%;
+  animation: pulseRing 3s infinite;
+  pointer-events: none;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* Quick Actions */
+.quick-actions {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  animation: quickActionsSlideIn 0.3s ease;
+}
+
+@keyframes quickActionsSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.quick-action-btn {
+  background: rgba(37, 211, 102, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.quick-action-btn:hover {
+  background: #22c55e;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+.quick-action-btn.view-cart {
+  background: rgba(243, 156, 18, 0.9);
+  box-shadow: 0 4px 12px rgba(243, 156, 18, 0.3);
+}
+
+.quick-action-btn.view-cart:hover {
+  background: var(--primary-color);
+  box-shadow: 0 6px 16px rgba(243, 156, 18, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .whatsapp-button-container {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .whatsapp-button {
+    padding: 0.875rem;
+    min-width: 52px;
+    min-height: 52px;
+  }
+
+  .whatsapp-button.expanded {
+    padding: 0.875rem 1.25rem;
+  }
+
+  .whatsapp-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .whatsapp-content {
+    font-size: 0.8rem;
+  }
+
+  .cart-badge {
+    width: 22px;
+    height: 22px;
+    font-size: 0.7rem;
+  }
+
+  .quick-action-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-button-container {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .whatsapp-button {
+    padding: 0.75rem;
+    min-width: 48px;
+    min-height: 48px;
+  }
+
+  .whatsapp-button.expanded {
+    padding: 0.75rem 1rem;
+  }
+
+  .whatsapp-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .whatsapp-content {
+    font-size: 0.75rem;
+  }
+
+  .tooltip-content {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .cart-badge {
+    width: 20px;
+    height: 20px;
+    font-size: 0.65rem;
+    top: -2px;
+    right: -2px;
+  }
+
+  .quick-actions {
+    margin-bottom: 0.75rem;
+  }
+
+  .quick-action-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .quick-action-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-button-container,
+  .whatsapp-button,
+  .whatsapp-content,
+  .pulse-ring,
+  .cart-badge,
+  .quick-actions,
+  .whatsapp-tooltip {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .whatsapp-button {
+    border: 2px solid white;
+  }
+  
+  .tooltip-content {
+    border: 1px solid white;
+  }
+}
+
+/* Focus styles for accessibility */
+.whatsapp-button:focus,
+.quick-action-btn:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .tooltip-content {
+    background: rgba(255, 255, 255, 0.95);
+    color: #1f2937;
+  }
+  
+  .tooltip-arrow {
+    border-top-color: rgba(255, 255, 255, 0.95);
+  }
+}
+
+/* Special animation when button first appears */
+.whatsapp-button-container.visible .whatsapp-button {
+  animation: buttonEntrance 0.6s ease-out;
+}
+
+@keyframes buttonEntrance {
+  0% {
+    transform: scale(0) rotate(180deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(90deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,51 @@
+.p-container {
+  padding: 0 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* gap: 2rem; */
+  margin-top: 2%;
+}
+
+.products{
+    display: grid;
+    grid-template-columns: 20% auto;
+    width: 90%;
+    /* gap: 2rem; */
+}
+
+.menu{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.menu > li :hover{
+    cursor: pointer;
+    color: coral;
+}
+
+.list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+    height: 25rem;
+    overflow-y: scroll;
+    gap: 0.8rem;
+    justify-content: space-between;
+}
+
+.product{
+    width: 10rem;
+    height: 7rem;
+    position: relative;
+    background:white;
+    overflow: hidden;
+    padding: 0.8rem;
+    display: flex;
+    border-radius: 1rem;
+}

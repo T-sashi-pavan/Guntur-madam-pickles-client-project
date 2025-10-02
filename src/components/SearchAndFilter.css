@@ -1,0 +1,242 @@
+/* Search and Filter Bar Styles - Consistent with Guntur Madam Pickles Brand */
+.search-filter-bar {
+  background: var(--text-light);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 8px 32px var(--shadow-light);
+  border: 1px solid rgba(242, 147, 75, 0.1);
+  margin-bottom: var(--spacing-xl);
+  position: sticky;
+  top: 80px;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+.search-filter-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: var(--spacing-lg);
+  align-items: end;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Search Section */
+.search-section {
+  position: relative;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md) var(--spacing-sm) 40px;
+  border: 2px solid rgba(242, 147, 75, 0.2);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  color: var(--text-dark);
+  background: var(--bg-cream);
+  transition: all 0.3s ease;
+  font-family: var(--font-primary);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-gradient-start);
+  box-shadow: 0 0 0 3px rgba(242, 147, 75, 0.1);
+  background: var(--text-light);
+}
+
+.search-input::placeholder {
+  color: var(--text-dark);
+  opacity: 0.6;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  font-size: 1.2rem;
+  color: var(--accent-brown);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--accent-brown);
+  opacity: 0.7;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.clear-search-btn:hover {
+  opacity: 1;
+  background: rgba(242, 147, 75, 0.1);
+}
+
+/* Filter Sections */
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--accent-brown);
+  margin-bottom: var(--spacing-xs);
+}
+
+.filter-icon {
+  font-size: 1rem;
+}
+
+.filter-select {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 2px solid rgba(242, 147, 75, 0.2);
+  border-radius: var(--border-radius);
+  background: var(--bg-cream);
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-primary);
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--primary-gradient-start);
+  box-shadow: 0 0 0 3px rgba(242, 147, 75, 0.1);
+  background: var(--text-light);
+}
+
+.filter-select:hover {
+  border-color: var(--primary-gradient-start);
+}
+
+/* Filter Actions */
+.filter-actions {
+  display: flex;
+  align-items: end;
+}
+
+.clear-filters-btn {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  font-family: var(--font-primary);
+}
+
+.clear-filters-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(242, 147, 75, 0.3);
+}
+
+.clear-filters-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .search-filter-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: var(--spacing-md);
+  }
+
+  .search-section {
+    grid-column: 1 / -1;
+  }
+
+  .filter-actions {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-filter-bar {
+    padding: var(--spacing-md);
+    position: relative;
+    top: 0;
+  }
+
+  .search-filter-container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .search-section,
+  .filter-section,
+  .filter-actions {
+    grid-column: 1;
+  }
+
+  .search-input {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+}
+
+@media (max-width: 480px) {
+  .search-filter-bar {
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius);
+  }
+
+  .search-input {
+    padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) 35px;
+  }
+
+  .filter-select,
+  .clear-filters-btn {
+    padding: var(--spacing-sm);
+  }
+
+  .filter-label {
+    font-size: 0.85rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .search-input,
+  .filter-select,
+  .clear-filters-btn,
+  .clear-search-btn {
+    transition: none !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .search-input,
+  .filter-select {
+    border-width: 2px;
+    border-color: var(--accent-brown);
+  }
+
+  .search-filter-bar {
+    border-width: 2px;
+    border-color: var(--accent-brown);
+  }
+}

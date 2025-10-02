@@ -1,0 +1,829 @@
+/* Hero Container */
+.hero-container {
+  min-height: 85vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(135deg, var(--bg-cream) 0%, #fef7ef 100%);
+  overflow: hidden;
+  padding: var(--spacing-md) var(--spacing-lg);
+  margin-top: -60px;
+}
+
+/* Ingredient positioning on orbit ring - 8 ingredients evenly spaced */
+.orbit-ring-1 .pickle-icon:nth-child(1) { 
+  top: 0; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+}
+.orbit-ring-1 .pickle-icon:nth-child(2) { 
+  top: 7%; 
+  right: 7%; 
+  transform: translate(50%, -50%); 
+}
+.orbit-ring-1 .pickle-icon:nth-child(3) { 
+  top: 50%; 
+  right: 0; 
+  transform: translate(50%, -50%); 
+}
+.orbit-ring-1 .pickle-icon:nth-child(4) { 
+  bottom: 7%; 
+  right: 7%; 
+  transform: translate(50%, 50%); 
+}
+.orbit-ring-1 .pickle-icon:nth-child(5) { 
+  bottom: 0; 
+  left: 50%; 
+  transform: translate(-50%, 50%); 
+}
+.orbit-ring-1 .pickle-icon:nth-child(6) { 
+  bottom: 7%; 
+  left: 7%; 
+  transform: translate(-50%, 50%); 
+}
+.orbit-ring-1 .pickle-icon:nth-child(7) { 
+  top: 50%; 
+  left: 0; 
+  transform: translate(-50%, -50%); 
+}
+.orbit-ring-1 .pickle-icon:nth-child(8) { 
+  top: 7%; 
+  left: 7%; 
+  transform: translate(-50%, -50%); 
+}
+
+/* Hero Content */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 600px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: var(--border-radius-xl);
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  margin-top: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease-out;
+}
+
+.hero-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Left Section */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+  z-index: 10;
+  animation: slideInLeft 1s ease-out 0.5s both;
+}
+
+.hero-stat {
+  text-align: center;
+  padding: var(--spacing-lg);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 8px 32px var(--shadow-light);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.hero-stat:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px var(--shadow-medium);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--accent-brown);
+  margin-top: var(--spacing-xs);
+  line-height: 1.4;
+}
+
+.hero-tagline {
+  padding: var(--spacing-lg);
+}
+
+.tagline-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  line-height: 1.6;
+  text-align: center;
+  display: block;
+}
+
+/* Center Section - Orbital Animation */
+.hero-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2xl);
+  z-index: 10;
+}
+
+.orbital-container {
+  position: relative;
+  width: 650px;
+  height: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Central Brand */
+.center-brand {
+  position: absolute;
+  z-index: 20;
+  text-align: center;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.98) 0%, rgba(255, 248, 240, 0.95) 100%);
+  border-radius: 50%;
+  backdrop-filter: blur(20px);
+  border: 4px solid rgba(242, 147, 75, 0.4);
+  box-shadow: 
+    0 0 80px rgba(242, 147, 75, 0.3),
+    inset 0 0 40px rgba(255, 255, 255, 0.5);
+  padding: var(--spacing-lg);
+  transition: all 0.6s ease;
+}
+
+.center-brand:hover {
+  transform: scale(1.02);
+  box-shadow: 
+    0 0 100px rgba(242, 147, 75, 0.4),
+    inset 0 0 50px rgba(255, 255, 255, 0.6);
+}
+
+.brand-logo {
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 240, 0.9) 100%), url("../assets/logo.png");
+  background-size: cover, cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-blend-mode: multiply;
+  position: relative;
+  margin-bottom: var(--spacing-xs);
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.logo-glow {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  background: radial-gradient(circle, rgba(242, 147, 75, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.brand-title {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 var(--spacing-sm);
+}
+
+.brand-title h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent-brown);
+  margin: 0 0 var(--spacing-xs) 0;
+  line-height: 1.1;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.brand-title p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--primary-gradient-end);
+  margin: 0;
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+/* Orbital Rings */
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(242, 147, 75, 0.2);
+}
+
+.orbit-ring-1 {
+  width: 560px;
+  height: 560px;
+  animation: rotateClockwise 60s linear infinite;
+}
+
+.orbit-ring-2 {
+  width: 580px;
+  height: 580px;
+  animation: rotateCounterClockwise 80s linear infinite;
+}
+
+.orbit-ring-3 {
+  width: 680px;
+  height: 680px;
+  animation: rotateClockwise 100s linear infinite;
+}
+
+/* Pickle Icons */
+.pickle-icon {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  animation: rotateReverse 60s linear infinite;
+  transition: all 0.3s ease;
+}
+
+.orbit-ring-2 .pickle-icon {
+  animation: rotateReverse 80s linear infinite;
+  width: 70px;
+  height: 70px;
+}
+
+.orbit-ring-3 .pickle-icon {
+  animation: rotateReverse 100s linear infinite;
+  width: 60px;
+  height: 60px;
+}
+
+.pickle-icon:hover {
+  transform: scale(1.3);
+  z-index: 15;
+}
+
+.icon-glow {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  background: radial-gradient(circle, rgba(242, 147, 75, 0.4) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pickle-icon:hover .icon-glow {
+  opacity: 1;
+}
+
+/* Pickle Icon Positioning - 8 ingredients evenly spaced */
+.orbit-ring-1 .pickle-icon:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
+.orbit-ring-1 .pickle-icon:nth-child(2) { top: 15%; right: 15%; }
+.orbit-ring-1 .pickle-icon:nth-child(3) { top: 50%; right: 0; transform: translateY(-50%); }
+.orbit-ring-1 .pickle-icon:nth-child(4) { bottom: 15%; right: 15%; }
+.orbit-ring-1 .pickle-icon:nth-child(5) { bottom: 0; left: 50%; transform: translateX(-50%); }
+.orbit-ring-1 .pickle-icon:nth-child(6) { bottom: 15%; left: 15%; }
+.orbit-ring-1 .pickle-icon:nth-child(7) { top: 50%; left: 0; transform: translateY(-50%); }
+.orbit-ring-1 .pickle-icon:nth-child(8) { top: 15%; left: 15%; }
+
+.orbit-ring-2 .pickle-icon:nth-child(1) { top: 15%; right: 15%; }
+.orbit-ring-2 .pickle-icon:nth-child(2) { bottom: 15%; right: 15%; }
+.orbit-ring-2 .pickle-icon:nth-child(3) { bottom: 15%; left: 15%; }
+.orbit-ring-2 .pickle-icon:nth-child(4) { top: 15%; left: 15%; }
+
+.orbit-ring-3 .pickle-icon:nth-child(1) { top: 10%; left: 50%; transform: translateX(-50%); }
+.orbit-ring-3 .pickle-icon:nth-child(2) { bottom: 10%; left: 50%; transform: translateX(-50%); }
+
+/* Pickle Icon Backgrounds */
+.pickle-mango { background-image: url("../assets/mango.png"); }
+.pickle-lemon { background-image: url("../assets/lemon.png"); }
+.pickle-chilli { background-image: url("../assets/red green chilli.png"); }
+.pickle-amla { background-image: url("../assets/amla.png"); }
+.pickle-garlic { background-image: url("../assets/garlic.png"); }
+.pickle-ginger { background-image: url("../assets/ginger.png"); }
+.pickle-carrot { background-image: url("../assets/carrot.png"); }
+.pickle-karanda { background-image: url("../assets/karanda.png"); }
+.pickle-tomato { background-image: url("../assets/tomato.png"); }
+.pickle-bael { background-image: url("../assets/bael.png"); }
+
+/* Floating Particles */
+.floating-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--secondary-gold);
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+.particle-1 { top: 20%; left: 10%; animation: float 8s ease-in-out infinite 0s; }
+.particle-2 { top: 30%; right: 15%; animation: float 10s ease-in-out infinite 1s; }
+.particle-3 { bottom: 25%; left: 20%; animation: float 12s ease-in-out infinite 2s; }
+.particle-4 { bottom: 35%; right: 10%; animation: float 9s ease-in-out infinite 3s; }
+.particle-5 { top: 50%; left: 5%; animation: float 11s ease-in-out infinite 4s; }
+.particle-6 { top: 60%; right: 5%; animation: float 13s ease-in-out infinite 5s; }
+.particle-7 { top: 10%; left: 50%; animation: float 7s ease-in-out infinite 1.5s; }
+.particle-8 { bottom: 10%; left: 50%; animation: float 14s ease-in-out infinite 2.5s; }
+.particle-9 { top: 40%; left: 30%; animation: float 6s ease-in-out infinite 3.5s; }
+.particle-10 { top: 70%; right: 30%; animation: float 15s ease-in-out infinite 4.5s; }
+.particle-11 { bottom: 50%; left: 70%; animation: float 8.5s ease-in-out infinite 5.5s; }
+.particle-12 { top: 25%; right: 70%; animation: float 9.5s ease-in-out infinite 6s; }
+
+/* Orbital Overlay */
+.orbital-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, transparent 60%, var(--bg-cream) 85%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* CTA Section */
+.hero-cta {
+  text-align: center;
+  animation: slideInUp 1s ease-out 1s both;
+}
+
+.cta-button {
+  position: relative;
+  background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
+  color: var(--text-light);
+  border: none;
+  padding: var(--spacing-md) var(--spacing-2xl);
+  border-radius: var(--border-radius-lg);
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 30px var(--shadow-light);
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
+}
+
+.cta-button:hover,
+.cta-button:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px var(--shadow-medium);
+}
+
+.cta-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.cta-button:hover .cta-shine {
+  left: 100%;
+}
+
+.cta-subtitle {
+  color: var(--accent-brown);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Right Section */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+  z-index: 10;
+  animation: slideInRight 1s ease-out 0.7s both;
+}
+
+/* Background Elements */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: floatBackground 20s ease-in-out infinite;
+}
+
+.bg-circle-1 {
+  width: 300px;
+  height: 300px;
+  background: var(--primary-gradient-start);
+  top: 10%;
+  left: -150px;
+  animation-delay: 0s;
+}
+
+.bg-circle-2 {
+  width: 200px;
+  height: 200px;
+  background: var(--secondary-gold);
+  bottom: 20%;
+  right: -100px;
+  animation-delay: 5s;
+}
+
+.bg-circle-3 {
+  width: 150px;
+  height: 150px;
+  background: var(--accent-brown);
+  top: 50%;
+  right: 10%;
+  animation-delay: 10s;
+}
+
+/* Animations */
+@keyframes rotateClockwise {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes rotateCounterClockwise {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+@keyframes rotateReverse {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); opacity: 0.6; }
+  50% { transform: translateY(-20px); opacity: 1; }
+}
+
+@keyframes floatBackground {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(180deg); }
+}
+
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(-50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  0% { opacity: 0; transform: translateX(50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .orbital-container {
+    width: 500px;
+    height: 500px;
+  }
+
+  .center-brand {
+    width: 280px;
+    height: 280px;
+  }
+
+  .brand-title h1 {
+    font-size: 1.4rem;
+  }
+
+  .brand-title p {
+    font-size: 0.85rem;
+  }
+
+  .orbit-ring-1 {
+    width: 400px;
+    height: 400px;
+  }
+
+  .orbit-ring-2 {
+    width: 480px;
+    height: 480px;
+  }
+
+  .orbit-ring-3 {
+    width: 560px;
+    height: 560px;
+  }
+
+  .pickle-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .orbit-ring-2 .pickle-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .orbit-ring-3 .pickle-icon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    text-align: center;
+    gap: var(--spacing-lg);
+    min-height: 90vh;
+  }
+
+  .hero-left,
+  .hero-right {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: var(--spacing-md);
+  }
+
+  .orbital-container {
+    width: 500px;
+    height: 500px;
+  }
+
+  .center-brand {
+    width: 260px;
+    height: 260px;
+    padding: var(--spacing-md);
+  }
+
+  .brand-logo {
+    width: 140px;
+    height: 140px;
+  }
+
+  .brand-title h1 {
+    font-size: 1.3rem;
+  }
+
+  .brand-title p {
+    font-size: 0.8rem;
+  }
+
+  .orbit-ring-1 {
+    width: 420px;
+    height: 420px;
+  }
+
+  .pickle-icon {
+    width: 65px;
+    height: 65px;
+  }
+
+  .orbit-ring-2 .pickle-icon {
+    width: 55px;
+    height: 55px;
+  }
+
+  .orbit-ring-3 .pickle-icon {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    padding: var(--spacing-lg) var(--spacing-md);
+    gap: var(--spacing-md);
+    margin-top: 0;
+    padding-top: 80px;
+  }
+
+  .hero-left,
+  .hero-right {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .orbital-container {
+    width: 420px;
+    height: 420px;
+  }
+
+  .center-brand {
+    width: 200px;
+    height: 200px;
+    padding: var(--spacing-sm);
+  }
+
+  .brand-logo {
+    width: 110px;
+    height: 110px;
+  }
+
+  .brand-title h1 {
+    font-size: 1.1rem;
+    line-height: 1.1;
+  }
+
+  .brand-title p {
+    font-size: 0.75rem;
+    line-height: 1.1;
+  }
+
+  .orbit-ring-1 {
+    width: 360px;
+    height: 360px;
+  }
+
+  .pickle-icon {
+    width: 55px;
+    height: 55px;
+  }
+
+  .orbit-ring-2 .pickle-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .orbit-ring-3 .pickle-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .cta-button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-container {
+    padding: var(--spacing-md) var(--spacing-sm);
+    min-height: 95vh;
+  }
+
+  .orbital-container {
+    width: 320px;
+    height: 320px;
+  }
+
+  .center-brand {
+    width: 180px;
+    height: 180px;
+    padding: var(--spacing-sm);
+    border: 3px solid rgba(242, 147, 75, 0.5);
+    box-shadow: 
+      0 0 60px rgba(242, 147, 75, 0.4),
+      inset 0 0 30px rgba(255, 255, 255, 0.7);
+  }
+
+  .brand-logo {
+    width: 90px;
+    height: 90px;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .brand-title h1 {
+    font-size: 1rem;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .brand-title p {
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .orbit-ring-1 {
+    width: 280px;
+    height: 280px;
+  }
+
+  .pickle-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hero-stat {
+    padding: var(--spacing-md);
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+  }
+
+  .tagline-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .orbital-container {
+    width: 300px;
+    height: 300px;
+  }
+
+  .center-brand {
+    width: 140px;
+    height: 140px;
+    padding: var(--spacing-xs);
+  }
+
+  .brand-logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .brand-title h1 {
+    font-size: 0.85rem;
+    line-height: 0.9;
+  }
+
+  .brand-title p {
+    font-size: 0.65rem;
+    line-height: 0.9;
+  }
+
+  .orbit-ring-1 {
+    width: 240px;
+    height: 240px;
+  }
+
+  .pickle-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .hero-container {
+    padding: var(--spacing-sm) var(--spacing-xs);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .orbit-ring,
+  .pickle-icon,
+  .particle,
+  .bg-circle {
+    animation: none !important;
+  }
+  
+  .hero-container {
+    transition: none !important;
+  }
+}
