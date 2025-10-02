@@ -111,10 +111,11 @@ const HomeHero = () => {
       {/* Right Side - Statistics */}
       <section className="hero-right">
         <div className="hero-stat">
-          <span className="stat-number">5000+</span>
-          <span className={`stat-label ${currentLanguage === 'te' ? 'font-telugu' : ''}`}>
-            {getText('Happy Customers', 'సంతోషకరమైన కస్టమర్లు')}
-          </span>
+         <span className="stat-number">100%</span>
+<span className={`stat-label ${currentLanguage === 'te' ? 'font-telugu' : ''}`}>
+  {getText('Homemade Taste', 'ఇంటివంటి రుచి')}
+</span>
+
         </div>
         <div className="hero-stat">
           <span className="stat-number">50+</span>

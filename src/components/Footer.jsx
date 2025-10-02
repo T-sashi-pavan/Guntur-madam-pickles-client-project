@@ -91,11 +91,11 @@ const Footer = () => {
                         </div>
                         <div className="contact-item">
                             <FaPhone className="contact-icon" />
-                            <span>+91 98765 43210</span>
+                            <span>+91 7702721323</span>
                         </div>
                         <div className="contact-item">
                             <FaEnvelope className="contact-icon" />
-                            <span>info@gunturmadampickles.com</span>
+                            <span>gunturmadampickles@gmail.com</span>
                         </div>
                     </div>
                 </div>

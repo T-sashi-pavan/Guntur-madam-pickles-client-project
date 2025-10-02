@@ -107,7 +107,7 @@ const ProductCard = ({ product }) => {
         <div className="product-content">
           {/* Product Name - Centered */}
           <div className="product-name-display">
-            <h4 className="product-title">{getProductName()}</h4>
+            <p className="product-title">{getProductName()}</p>
           </div>
 
           <div className="product-info">        
