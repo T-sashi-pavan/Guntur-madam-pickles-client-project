@@ -223,10 +223,12 @@
   border-color: #f2934b;
   box-shadow: 0 3px 8px rgba(242, 147, 75, 0.4); /* Stronger shadow */
 }
-
+div.price-section {
+ height: 10%;
+}
 /* Price Section */
 .price-section {
-  margin: 6px 0 8px; /* Adjusted margin */
+  margin: 0px; /* Adjusted margin */
   width: 100%;
 }
 

@@ -43,7 +43,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
     
     // Generate WhatsApp message
     const message = getFormattedWhatsAppMessage();
-    const whatsappUrl = `https://wa.me/917330775225?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/917702721323?text=${encodeURIComponent(message)}`;
     
     // Open WhatsApp
     window.open(whatsappUrl, '_blank');

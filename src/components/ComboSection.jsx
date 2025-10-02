@@ -48,6 +48,40 @@ if (typeof document !== 'undefined' && !document.getElementById('toast-animation
         max-width: none !important;
       }
     }
+    
+    @media (max-width: 430px) {
+      .combo-product-card {
+        height: 100% !important;
+        width: 100% !important;
+        padding: 10px !important;
+        margin: 1% !important;
+      }
+      .combo-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+      }
+      .combo-product-image {
+        width: 70px !important;
+        height: 70px !important;
+      }
+      .combo-product-name {
+        font-size: 0.9em !important;
+      }
+      .combo-product-price {
+        font-size: 1em !important;
+      }
+      .combo-option-card {
+        height: 100% !important;
+        width: 100% !important;
+        padding: 15px 15px !important;
+      }
+      .combo-options-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+      }
+    }
   `;
   document.head.appendChild(style);
 }
@@ -270,7 +304,7 @@ const ComboSection = () => {
         }}>
           Select the perfect combo size and enjoy amazing savings!
         </p>
-        <div style={styles.comboGrid}>
+        <div style={styles.comboGrid} className="combo-options-grid">
           {Object.entries(comboOptions).map(([key, combo]) => {
             const isSelected = selectedComboKey === key;
             return (
@@ -285,6 +319,7 @@ const ComboSection = () => {
                     transform: 'translateY(-2px)'
                   } : {})
                 }}
+                className="combo-option-card"
               >
                 <input
                   type="radio"
@@ -352,7 +387,7 @@ const ComboSection = () => {
         {/* Veg Pickles */}
         <div style={styles.categorySection}>
           <h3 style={styles.productCategoryHeading}>🥒 Vegetarian Pickles (250g each)</h3>
-          <div style={styles.grid}>
+          <div style={styles.grid} className="combo-grid">
             {vegPickles.map((pickle) => (
               <div
                 key={pickle.id}
@@ -360,13 +395,14 @@ const ComboSection = () => {
                   ...styles.productCard,
                   ...(selectedProductIds.includes(pickle.id) ? styles.productCardSelected : {}),
                 }}
+                className="combo-product-card"
                 onClick={() => handleProductSelection(pickle.id)}
               >
-                <img src={pickle.image} alt={pickle.name} style={styles.productImage} />
+                <img src={pickle.image} alt={pickle.name} style={styles.productImage} className="combo-product-image" />
                 <div style={styles.productInfo}>
-                  <h4 style={styles.productName}>{pickle.name}</h4>
+                  <h4 style={styles.productName} className="combo-product-name">{pickle.name}</h4>
                   <p style={styles.productWeight}>250g Pack</p>
-                  <p style={styles.productPrice}>₹{pickle.price}</p>
+                  <p style={styles.productPrice} className="combo-product-price">₹{pickle.price}</p>
                   <div style={styles.checkboxContainer}>
                     <input
                       type="checkbox"
@@ -385,7 +421,7 @@ const ComboSection = () => {
         {currentCombo.type === 'mixed' && (
           <div style={styles.categorySection}>
             <h3 style={styles.productCategoryHeading}>🍗 Non-Vegetarian Pickles (250g each)</h3>
-            <div style={styles.grid}>
+            <div style={styles.grid} className="combo-grid">
               {nonVegPickles.map((pickle) => (
                 <div
                   key={pickle.id}
@@ -393,13 +429,14 @@ const ComboSection = () => {
                     ...styles.productCard,
                     ...(selectedProductIds.includes(pickle.id) ? styles.productCardSelected : {}),
                   }}
+                  className="combo-product-card"
                   onClick={() => handleProductSelection(pickle.id)}
                 >
-                  <img src={pickle.image} alt={pickle.name} style={styles.productImage} />
+                  <img src={pickle.image} alt={pickle.name} style={styles.productImage} className="combo-product-image" />
                   <div style={styles.productInfo}>
-                    <h4 style={styles.productName}>{pickle.name}</h4>
+                    <h4 style={styles.productName} className="combo-product-name">{pickle.name}</h4>
                     <p style={styles.productWeight}>250g Pack</p>
-                    <p style={styles.productPrice}>₹{pickle.price}</p>
+                    <p style={styles.productPrice} className="combo-product-price">₹{pickle.price}</p>
                     <div style={styles.checkboxContainer}>
                       <input
                         type="checkbox"
@@ -481,6 +518,12 @@ const styles = {
     border: '1px solid #ddd',
     textAlign: 'center',
     color: '#333',
+    '@media (max-width: 768px)': {
+      margin: '20px 10px',
+      padding: '20px 10px',
+          height: '100%',
+    width: '50%', 
+    },
   },
   heading: {
     fontSize: '2.5em',
@@ -489,6 +532,19 @@ const styles = {
     fontWeight: '700',
     letterSpacing: '1px',
     textShadow: '1px 1px 2px rgba(0,0,0,0.1)',
+    '@media (max-width: 480px)': {
+      fontSize: '1.8em',
+      marginBottom: '20px',
+    },
+  },
+  subHeading: {
+    fontSize: '1.2em',
+    color: '#666',
+    marginBottom: '40px',
+    '@media (max-width: 480px)': {
+      fontSize: '1em',
+      marginBottom: '25px',
+    },
   },
   comboOptionsContainer: {
     background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
@@ -499,6 +555,12 @@ const styles = {
     border: '2px solid #e9ecef',
     position: 'relative',
     overflow: 'hidden',
+    '@media (max-width: 480px)': {
+      padding: '25px 15px',
+      marginBottom: '30px',
+          height: '100%',
+    width: '50%', 
+    },
   },
   sectionTitle: {
     fontSize: '1.6rem',
@@ -510,12 +572,26 @@ const styles = {
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     position: 'relative',
+    '@media (max-width: 480px)': {
+      fontSize: '1.4rem',
+      marginBottom: '20px',
+      
+    },
   },
   comboGrid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
     gap: '20px',
     marginTop: '20px',
+    '@media (max-width: 768px)': { // Tablet layout
+      gridTemplateColumns: '1fr', // Stacks combo options vertically
+    },
+    '@media (max-width: 412px)': { // Tablet layout
+      gridTemplateColumns: '1fr', // Stacks combo options vertically
+      height: '100%',
+    width: '50%', 
+
+    },
   },
   comboOption: {
     display: 'flex',
@@ -535,6 +611,14 @@ const styles = {
       boxShadow: '0 12px 35px rgba(225, 112, 85, 0.25)',
       borderColor: '#e17055',
       background: 'linear-gradient(135deg, #fff5f3 0%, #ffeaa7 100%)',
+    },
+    '@media (max-width: 480px)': { // Even more compact on very small screens
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+      padding: '15px 20px',
+      height: '100%',
+      width: '50%',
+      textAlign: 'left',
     }
   },
   comboLabel: {
@@ -542,12 +626,19 @@ const styles = {
     flexDirection: 'column',
     gap: '8px',
     flex: '1',
+    '@media (max-width: 480px)': {
+height: '100%',
+    width: '50%',       marginBottom: '10px',
+    }
   },
   comboTitle: {
     fontSize: '1.2rem',
     fontWeight: '700',
     color: '#2d3436',
     letterSpacing: '0.5px',
+    '@media (max-width: 480px)': {
+      fontSize: '1rem',
+    }
   },
   comboDiscount: {
     fontSize: '0.95rem',
@@ -573,6 +664,10 @@ const styles = {
       height: '200%',
       background: 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)',
       animation: 'shimmer 2s infinite',
+    },
+    '@media (max-width: 480px)': {
+      fontSize: '0.85rem',
+      padding: '6px 12px',
     }
   },
   radioLabel: {
@@ -590,9 +685,19 @@ const styles = {
     accentColor: '#e17055',
     cursor: 'pointer',
     position: 'relative',
+    '@media (max-width: 480px)': {
+      position: 'absolute',
+      top: '15px',
+      right: '15px',
+      marginRight: '0',
+    }
   },
   productsContainer: {
     marginBottom: '30px',
+     '@media (max-width: 480px)': {
+      height: '100%',
+    width: '50%',
+  },
   },
   productCategoryHeading: {
     fontSize: '1.8em',
@@ -602,6 +707,10 @@ const styles = {
     borderBottom: '2px solid #D44C1D',
     paddingBottom: '10px',
     display: 'inline-block',
+    '@media (max-width: 480px)': {
+      fontSize: '1.4em',
+      margin: '30px 0 20px 0',
+    },
   },
   grid: {
     display: 'grid',
@@ -609,6 +718,19 @@ const styles = {
     gap: '25px',
     justifyContent: 'center',
     marginBottom: '20px',
+    '@media (max-width: 768px)': { // Tablet layout
+      gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
+      gap: '20px',
+    },
+    '@media (max-width: 480px)': { // Mobile layout for pickle cards - 2 items per row
+      gridTemplateColumns: 'repeat(2, 1fr)',
+      gap: '15px',
+          height: '100%',
+    width: '50%', 
+    },
+    '@media (max-width: 380px)': { // Smaller mobile layout
+      gridTemplateColumns: '1fr', // Stacks them on very small screens
+    }
   },
   productCard: {
     backgroundColor: '#ffffff',
@@ -624,6 +746,12 @@ const styles = {
     alignItems: 'center',
     position: 'relative', // For absolute positioning of checkbox
   },
+  productCardSelected: {
+    borderColor: '#D44C1D',
+    boxShadow: '0 0 0 3px #D44C1D, 0 8px 16px rgba(212, 76, 29, 0.2)',
+    transform: 'scale(1.02)',
+    backgroundColor: '#fff5f3',
+  },
   productCardHover: {
     transform: 'translateY(-5px)',
     boxShadow: '0 6px 12px rgba(0, 0, 0, 0.1)',
@@ -635,6 +763,10 @@ const styles = {
     borderRadius: '8px',
     marginBottom: '10px',
     border: '1px solid #eee',
+    '@media (max-width: 480px)': {
+      width: '80px',
+      height: '80px',
+    }
   },
   productInfo: {
     flexGrow: 1,
@@ -643,6 +775,7 @@ const styles = {
     justifyContent: 'center',
     width: '100%',
   },
+ 
   productName: {
     fontSize: '1.1em',
     fontWeight: '600',
