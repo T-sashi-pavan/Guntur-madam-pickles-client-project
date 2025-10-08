@@ -50,6 +50,44 @@ if (typeof document !== 'undefined' && !document.getElementById('toast-animation
       }
     }
     
+    @media (max-width: 768px) {
+      .combo-options-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+        width: 100% !important;
+      }
+      .combo-option-card {
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 15px 20px !important;
+        margin-bottom: 0 !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        text-align: left !important;
+      }
+      .combo-option-content {
+        flex: 1 !important;
+        margin-right: 10px !important;
+      }
+      .combo-option-title {
+        font-size: 1.1rem !important;
+        margin-bottom: 5px !important;
+      }
+      .combo-option-discount {
+        font-size: 0.85rem !important;
+        padding: 6px 12px !important;
+      }
+      .combo-section-container {
+        padding: 25px 15px !important;
+        margin: 20px 10px !important;
+      }
+      .combo-options-container {
+        padding: 25px 20px !important;
+        margin-bottom: 30px !important;
+      }
+    }
+    
     @media (max-width: 430px) {
       .combo-product-card {
         height: 100% !important;
@@ -73,14 +111,48 @@ if (typeof document !== 'undefined' && !document.getElementById('toast-animation
         font-size: 1em !important;
       }
       .combo-option-card {
-        height: 100% !important;
         width: 100% !important;
-        padding: 15px 15px !important;
+        min-height: auto !important;
+        padding: 12px 15px !important;
+        margin-bottom: 10px !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
       }
       .combo-options-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
+        display: flex !important;
+        flex-direction: column !important;
         gap: 10px !important;
+        width: 100% !important;
+      }
+      .combo-option-title {
+        font-size: 0.95rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 8px !important;
+      }
+      .combo-option-discount {
+        font-size: 0.8rem !important;
+        padding: 4px 8px !important;
+        margin-bottom: 5px !important;
+      }
+      .combo-option-selected {
+        font-size: 0.8rem !important;
+      }
+      .combo-section-container {
+        padding: 20px 10px !important;
+        margin: 20px 5px !important;
+      }
+      .combo-options-container {
+        padding: 20px 15px !important;
+        margin-bottom: 25px !important;
+      }
+      .combo-section-title {
+        font-size: 1.3rem !important;
+        margin-bottom: 15px !important;
+      }
+      .combo-section-subtitle {
+        font-size: 0.9rem !important;
+        margin-bottom: 20px !important;
       }
     }
   `;
@@ -343,11 +415,11 @@ const ComboSection = () => {
   };
 
   return (
-    <div style={styles.comboSection}>
-      <h2 style={styles.heading}>
-        {getText('🥒 Customize Your Pickle Combo', '🥒 మీ పచ్చడి కాంబోను అనుకూలీకరించుకోండి')}
+    <div style={styles.comboSection} className="combo-section-container">
+      <h2 style={styles.heading} className="combo-section-title">
+        {getText(' Customize Your Pickle Combo', ' మీ పచ్చడి కాంబోను అనుకూలీకరించుకోండి')}
       </h2>
-      <p style={styles.subHeading}>
+      <p style={styles.subHeading} className="combo-section-subtitle">
         {getText(
           'Choose your favorite pickles and save with our combo offers!',
           'మీకు ఇష్టమైన పచ్చడలను ఎంచుకోండి మరియు మా కాంబో ఆఫర్లతో ఆదా చేసుకోండి!'
@@ -355,7 +427,7 @@ const ComboSection = () => {
       </p>
 
       {/* Combo Type Selection */}
-      <div style={styles.comboOptionsContainer}>
+      <div style={styles.comboOptionsContainer} className="combo-options-container">
         <h3 style={styles.sectionTitle}>
           {getText('🎯 Choose Your Combo Type', '🎯 మీ కాంబో రకాన్ని ఎంచుకోండి')}
         </h3>
@@ -396,11 +468,11 @@ const ComboSection = () => {
                   onChange={handleComboTypeChange}
                   style={styles.radioButton}
                 />
-                <div style={styles.comboLabel}>
+                <div style={styles.comboLabel} className="combo-option-content">
                   <span style={{
                     ...styles.comboTitle,
                     ...(isSelected ? { color: '#e17055' } : {})
-                  }}>
+                  }} className="combo-option-title">
                     {getComboLabel(combo)}
                   </span>
                   <span style={{
@@ -410,7 +482,7 @@ const ComboSection = () => {
                       color: '#ffffff',
                       border: '2px solid #d63031'
                     } : {})
-                  }}>
+                  }} className="combo-option-discount">
                      {getText(`💰 Save ${Math.round(combo.discount * 100)}%`, `💰 ${Math.round(combo.discount * 100)}% ఆదా`)}
                   </span>
                   {isSelected && (
@@ -419,7 +491,7 @@ const ComboSection = () => {
                       color: '#e17055',
                       fontWeight: '500',
                       marginTop: '4px'
-                    }}>
+                    }} className="combo-option-selected">
                        {getText('✅ Currently Selected', '✅ ప్రస్తుతం ఎంచుకోబడింది')}
                     </span>
                   )}
@@ -454,7 +526,7 @@ const ComboSection = () => {
         {/* Veg Pickles */}
         <div style={styles.categorySection}>
           <h3 style={styles.productCategoryHeading}>
-            {getText('🥒 Vegetarian Pickles (250g each)', '🥒 శాఖాహార పచ్చడలు (ప్రతి ఒక్కటి 250గ్రాముల)')}
+            {getText(' Vegetarian Pickles (250g each)', ' శాఖాహార పచ్చడలు (ప్రతి ఒక్కటి 250గ్రాముల)')}
           </h3>
           <div style={styles.grid} className="combo-grid">
             {vegPickles.map((pickle) => (
@@ -597,12 +669,6 @@ const styles = {
     border: '1px solid #ddd',
     textAlign: 'center',
     color: '#333',
-    '@media (max-width: 768px)': {
-      margin: '20px 10px',
-      padding: '20px 10px',
-          height: '100%',
-    width: '50%', 
-    },
   },
   heading: {
     fontSize: '2.5em',
@@ -611,19 +677,11 @@ const styles = {
     fontWeight: '700',
     letterSpacing: '1px',
     textShadow: '1px 1px 2px rgba(0,0,0,0.1)',
-    '@media (max-width: 480px)': {
-      fontSize: '1.8em',
-      marginBottom: '20px',
-    },
   },
   subHeading: {
     fontSize: '1.2em',
     color: '#666',
     marginBottom: '40px',
-    '@media (max-width: 480px)': {
-      fontSize: '1em',
-      marginBottom: '25px',
-    },
   },
   comboOptionsContainer: {
     background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
@@ -634,12 +692,6 @@ const styles = {
     border: '2px solid #e9ecef',
     position: 'relative',
     overflow: 'hidden',
-    '@media (max-width: 480px)': {
-      padding: '25px 15px',
-      marginBottom: '30px',
-          height: '100%',
-    width: '50%', 
-    },
   },
   sectionTitle: {
     fontSize: '1.6rem',
@@ -651,26 +703,12 @@ const styles = {
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     position: 'relative',
-    '@media (max-width: 480px)': {
-      fontSize: '1.4rem',
-      marginBottom: '20px',
-      
-    },
   },
   comboGrid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
     gap: '20px',
     marginTop: '20px',
-    '@media (max-width: 768px)': { // Tablet layout
-      gridTemplateColumns: '1fr', // Stacks combo options vertically
-    },
-    '@media (max-width: 412px)': { // Tablet layout
-      gridTemplateColumns: '1fr', // Stacks combo options vertically
-      height: '100%',
-    width: '50%', 
-
-    },
   },
   comboOption: {
     display: 'flex',
@@ -691,33 +729,18 @@ const styles = {
       borderColor: '#e17055',
       background: 'linear-gradient(135deg, #fff5f3 0%, #ffeaa7 100%)',
     },
-    '@media (max-width: 480px)': { // Even more compact on very small screens
-      flexDirection: 'column',
-      alignItems: 'flex-start',
-      padding: '15px 20px',
-      height: '100%',
-      width: '50%',
-      textAlign: 'left',
-    }
   },
   comboLabel: {
     display: 'flex',
     flexDirection: 'column',
     gap: '8px',
     flex: '1',
-    '@media (max-width: 480px)': {
-height: '100%',
-    width: '50%',       marginBottom: '10px',
-    }
   },
   comboTitle: {
     fontSize: '1.2rem',
     fontWeight: '700',
     color: '#2d3436',
     letterSpacing: '0.5px',
-    '@media (max-width: 480px)': {
-      fontSize: '1rem',
-    }
   },
   comboDiscount: {
     fontSize: '0.95rem',
@@ -744,10 +767,6 @@ height: '100%',
       background: 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)',
       animation: 'shimmer 2s infinite',
     },
-    '@media (max-width: 480px)': {
-      fontSize: '0.85rem',
-      padding: '6px 12px',
-    }
   },
   radioLabel: {
     display: 'inline-flex',

@@ -78,13 +78,13 @@ const About = () => {
         </div>
 
         {/* Statistics Row */}
-        <div className="about-stats">
-          <div className="stat-item">
-           <span className="stat-number">100%</span>
-<span className={`stat-label ${currentLanguage === 'te' ? 'font-telugu' : ''}`}>
-  {getText('Homemade Taste', 'ఇంటివంటి రుచి')}
-</span>
-          </div>
+        {/* <div className="about-stats">
+                    <div className="stat-item">
+                    <span className="stat-number">100%</span>
+          <span className={`stat-label ${currentLanguage === 'te' ? 'font-telugu' : ''}`}>
+            {getText('Homemade Taste', 'ఇంటివంటి రుచి')}
+          </span>
+                    </div>
           <div className="stat-item">
             <span className="stat-number">50+</span>
             <span className={`stat-label ${currentLanguage === 'te' ? 'font-telugu' : ''}`}>
@@ -103,7 +103,7 @@ const About = () => {
               {getText('Customer Support', 'కస్టమర్ మద్దతు')}
             </span>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
