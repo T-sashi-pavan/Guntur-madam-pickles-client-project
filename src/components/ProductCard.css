@@ -5,7 +5,7 @@
 /* Main Product Card Container - Vertical Layout */
 .product-card {
   position: relative;
-  background: whitesmoke;
+  background: #ffffff !important; /* Force white background on all devices */
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(220, 206, 206, 0.08);
   border: 1px solid #f0f0f0;
@@ -20,6 +20,7 @@
   transition: all 0.3s ease;
   overflow: hidden;
   text-align: center; /* Center text content */
+  color: #333333 !important; /* Ensure dark text on white background */
 }
 
 .product-card:hover {
@@ -423,6 +424,8 @@ div.price-section {
   .product-card {
     max-width: 280px; /* Adjust card max-width for tablet */
     margin: 10px auto;
+    background: #ffffff !important; /* Enforce white background on tablet */
+    color: #333333 !important; /* Ensure dark text on white background */
   }
 
   .wishlist-button {
@@ -470,6 +473,8 @@ div.price-section {
   .product-card {
     max-width: 250px; /* Further adjust card max-width for mobile */
     padding: 8px;
+    background: #ffffff !important; /* Enforce white background on mobile */
+    color: #333333 !important; /* Ensure dark text on white background */
   }
 
   .product-image-container {
@@ -648,29 +653,22 @@ div.price-section {
   }
 }
 
-@media (prefers-color-scheme: dark) {
+/* Force white background on all devices regardless of color scheme preference */
+@media (max-width: 768px) {
   .product-card {
-    background: #2a2a2a;
-    border-color: #444;
-    color: #fff;
+    background: #ffffff !important;
+    color: #333333 !important;
   }
-
+  
   .product-title {
-    color: #f7c04a;
-  }
-
-  .product-description {
-    color: #ccc;
-  }
-
-  .size-option {
-    background: #444;
-    color: #fff;
-    border-color: #555;
-  }
-
-  .no-image-placeholder {
-    background: linear-gradient(135deg, #444, #555);
-    color: #f7c04a;
+    color: #7f3500 !important;
   }
 }
+
+/* Additional override for all screen sizes to ensure consistent white background */
+.product-card {
+  background: #ffffff !important;
+  color: #333333 !important;
+}
+
+/* Removed dark mode styles to maintain consistent white background across all devices */

@@ -226,6 +226,63 @@
     gap: 1rem;
 }
 
+.footer-bottom-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-bottom-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Share Website Button */
+.share-website-btn {
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    text-transform: capitalize;
+}
+
+.share-website-btn:hover {
+    background: linear-gradient(135deg, #128c7e 0%, #075e54 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.share-website-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(37, 211, 102, 0.3);
+}
+
+.share-icon {
+    font-size: 1rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .made-with-love {
     color: #f39c12;
     font-weight: bold;
@@ -283,7 +340,23 @@
     .footer-bottom-content {
         flex-direction: column;
         text-align: center;
-        gap: 0.5rem;
+        gap: 1rem;
+    }
+    
+    .footer-bottom-left {
+        align-items: center;
+    }
+    
+    .footer-bottom-right {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .share-website-btn {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        width: auto;
+        min-width: 200px;
     }
     
     .map-column {
@@ -293,6 +366,27 @@
     .map-container {
         height: 250px;
         max-width: 100%;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .footer-container {
+        padding: 1.5rem 1rem;
+    }
+    
+    .share-website-btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+        min-width: 180px;
+    }
+    
+    .share-website-btn span {
+        font-size: 0.85rem;
+    }
+    
+    .footer-bottom {
+        padding: 1rem;
     }
 }
 

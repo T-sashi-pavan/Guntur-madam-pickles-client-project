@@ -2,7 +2,7 @@ import React from 'react'
 import './Footer.css'
 import Logo from '../assets/logo.png'
 import { useLanguage } from '../contexts/LanguageContext'
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp, FaInstagram, FaFacebook } from 'react-icons/fa'
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp, FaInstagram, FaFacebook, FaShare } from 'react-icons/fa'
 
 const Footer = () => {
     const { language } = useLanguage();
@@ -19,6 +19,8 @@ const Footer = () => {
             email: "Email",
             address: "Guntur, Andhra Pradesh, India",
             description: "Authentic traditional pickles made with love and the finest ingredients",
+            shareWebsite: "Share Website",
+            shareMessage: "Check out Guntur Madam Pickles - Authentic traditional pickles!",
             madeWith: "Made with ❤️ by Tulasi",
             copyright: "© 2025 Guntur Madam Pickles. All rights reserved."
         },
@@ -33,12 +35,20 @@ const Footer = () => {
             email: "ఈమెయిల్",
             address: "గుంటూరు, ఆంధ్రప్రదేశ్, భారతదేశం",
             description: "ప్రేమతో మరియు అత్యుత్తమ పదార్థాలతో తయారైన సాంప్రదాయ ఊరగాయలు",
+            shareWebsite: "వెబ్‌సైట్ షేర్ చేయండి",
+            shareMessage: "గుంటూరు మేడం పికిల్స్ చూడండి - సాంప్రదాయ ఊరగాయలు!",
             madeWith: "తులసి చేత ప్రేమతో తయారు చేయబడింది ❤️",
             copyright: "© 2025 గుంటూరు మేడం పికిల్స్. అన్ని హక్కులు రక్షించబడ్డాయి."
         }
     };
 
     const content = footerContent[language];
+
+    const handleShareWebsite = () => {
+        const shareText = `${content.shareMessage}\n\nhttps://gunturmadampickles.live/`;
+        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+        window.open(whatsappUrl, '_blank');
+    };
 
     return (
         <footer className="footer-section">
@@ -121,8 +131,16 @@ const Footer = () => {
             {/* Bottom Footer */}
             <div className="footer-bottom">
                 <div className="footer-bottom-content">
-                    <p className="made-with-love">{content.madeWith}</p>
-                    <p className="copyright">{content.copyright}</p>
+                    <div className="footer-bottom-left">
+                        <p className="made-with-love">{content.madeWith}</p>
+                        <p className="copyright">{content.copyright}</p>
+                    </div>
+                    <div className="footer-bottom-right">
+                        <button className="share-website-btn" onClick={handleShareWebsite}>
+                            <FaShare className="share-icon" />
+                            <span>{content.shareWebsite}</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </footer>
