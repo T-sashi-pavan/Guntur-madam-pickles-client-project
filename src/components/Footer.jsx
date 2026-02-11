@@ -21,6 +21,7 @@ const Footer = () => {
             description: "Authentic traditional pickles made with love and the finest ingredients",
             shareWebsite: "Share Website",
             shareMessage: "Check out Guntur Madam Pickles - Authentic traditional pickles!",
+            privacyPolicy: "Privacy Policy",
             madeWith: "Made with ❤️ by Tulasi",
             copyright: "© 2025 Guntur Madam Pickles. All rights reserved."
         },
@@ -37,6 +38,7 @@ const Footer = () => {
             description: "ప్రేమతో మరియు అత్యుత్తమ పదార్థాలతో తయారైన సాంప్రదాయ ఊరగాయలు",
             shareWebsite: "వెబ్‌సైట్ షేర్ చేయండి",
             shareMessage: "గుంటూరు మేడం పికిల్స్ చూడండి - సాంప్రదాయ ఊరగాయలు!",
+            privacyPolicy: "గోప్యతా విధానం",
             madeWith: "తులసి చేత ప్రేమతో తయారు చేయబడింది ❤️",
             copyright: "© 2025 గుంటూరు మేడం పికిల్స్. అన్ని హక్కులు రక్షించబడ్డాయి."
         }
@@ -88,6 +90,7 @@ const Footer = () => {
                         <li><a href="/category/sweets">Sweets</a></li>
                         <li><a href="/category/masalas">Masalas</a></li>
                         <li><a href="/category/powders">Powders</a></li>
+                        <li><a href="/privacy-policy">{content.privacyPolicy}</a></li>
                     </ul>
                 </div>
 

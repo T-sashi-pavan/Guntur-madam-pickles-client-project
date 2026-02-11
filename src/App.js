@@ -17,6 +17,7 @@ import HomePage from './pages/HomePage';
 import CategoryPage from './pages/CategoryPage';
 import SearchResults from './pages/SearchResults';
 import ProductDetailsPage from './pages/ProductDetailsPage';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -74,6 +75,7 @@ function App() {
                 <Route path="/category/:category" element={<CategoryPage onProductClick={handleProductClick} />} />
                 <Route path="/search" element={<SearchResults onProductClick={handleProductClick} />} />
                 <Route path="/product/:id" element={<ProductDetailsPage />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               </Routes>
             </main>
 

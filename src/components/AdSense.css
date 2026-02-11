@@ -1,0 +1,67 @@
+/* Google AdSense Styling */
+
+.adsense-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+  padding: 10px;
+}
+
+.adsense-container {
+  max-width: 100%;
+  text-align: center;
+}
+
+/* Ad label (optional, for transparency) */
+.ad-label {
+  font-size: 0.75rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* Responsive ad containers */
+.ad-horizontal {
+  min-height: 90px;
+}
+
+.ad-rectangle {
+  min-height: 250px;
+}
+
+.ad-vertical {
+  min-height: 600px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .adsense-wrapper {
+    margin: 20px 0;
+    padding: 5px;
+  }
+  
+  .ad-horizontal {
+    min-height: 50px;
+  }
+  
+  .ad-rectangle {
+    min-height: 200px;
+  }
+}
+
+/* Smooth ad loading animation */
+.adsbygoogle {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
