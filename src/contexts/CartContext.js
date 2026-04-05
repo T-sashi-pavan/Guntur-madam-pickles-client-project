@@ -277,6 +277,21 @@ export const CartProvider = ({ children }) => {
   const generateWhatsAppMessage = (customerInfo = {}) => {
     const { name = '', phone = '', address = '' } = customerInfo;
     
+    // Get current date and time information
+    const now = new Date();
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    
+    const dayName = daysOfWeek[now.getDay()];
+    const date = now.getDate();
+    const month = months[now.getMonth()];
+    const year = now.getFullYear();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    
+    const formattedDateTime = `${dayName}, ${date} ${month} ${year} at ${hours}:${minutes}:${seconds}`;
+    
     let message = "Hello Guntur Madam Pickles,\nI want to order:\n\n";
     
     // Separate regular items and combos
@@ -307,6 +322,9 @@ export const CartProvider = ({ children }) => {
     
     message += `Total items: ${getTotalItems()}\n`;
     message += `Total amount: ₹${getTotalPrice()}\n\n`;
+    
+    // Add order timestamp
+    message += `📅 Order Date & Time: ${formattedDateTime}\n\n`;
     
     if (name) message += `Name: ${name}\n`;
     if (phone) message += `Phone: ${phone}\n`;
