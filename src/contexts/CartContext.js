@@ -330,6 +330,10 @@ export const CartProvider = ({ children }) => {
     if (phone) message += `Phone: ${phone}\n`;
     if (address) message += `Address: ${address}\n`;
     
+    // Append delivery note to WhatsApp message (both English and Telugu)
+    message += `\nDelivery - based on transportation\n`;
+    message += `డెలివరీ - రవాణాపై ఆధారపడి ఉంటుంది\n\n`;
+
     return message;
   };
 

@@ -290,7 +290,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
                 </div>
                 <div className="summary-row">
                   <span>{t('delivery')}</span>
-                  <span className="free-delivery">{t('free')}</span>
+                  <span className="free-delivery">{t('free_home_delivery')}</span>
                 </div>
                 <div className="summary-row total">
                   <span>{t('total')}</span>

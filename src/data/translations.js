@@ -63,7 +63,7 @@ export const translations = {
     fresh_ingredients: 'Fresh Ingredients',
     long_shelf_life: 'Long Shelf Life',
     authentic_homemade: 'Authentic Homemade',
-    free_home_delivery: 'Free Home Delivery',
+    free_home_delivery: 'Delivery - based on transportation',
     fresh_daily: 'Fresh Daily',
     
     // Filter & Sort
@@ -158,7 +158,7 @@ export const translations = {
     fresh_ingredients: 'తాజా పదార్థాలు',
     long_shelf_life: 'ఎక్కువ కాలం ఉంచుకోవచ్చు',
     authentic_homemade: 'నిజమైన ఇంటిలో తయారు',
-    free_home_delivery: 'ఉచిత హోమ్ డెలివరీ',
+    free_home_delivery: 'డెలివరీ - రవాణాపై ఆధారపడి ఉంటుంది',
     fresh_daily: 'రోజువారీ తాజా',
     
     // Filter & Sort

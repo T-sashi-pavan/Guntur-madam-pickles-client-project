@@ -286,7 +286,7 @@ const ProductDetailsPage = () => {
               <div className="feature-item">
                 <span className="feature-icon">🚚</span>
                 <span className={currentLanguage === 'te' ? 'font-telugu' : ''}>
-                  {getText('Free Home Delivery', 'ఉచిత ఇంటికి డెలివరీ')}
+                  {getText('Delivery - based on transportation', 'డెలివరీ - రవాణాపై ఆధారపడి ఉంటుంది')}
                 </span>
               </div>
               <div className="feature-item">
