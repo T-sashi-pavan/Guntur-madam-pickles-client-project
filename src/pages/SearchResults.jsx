@@ -4,7 +4,9 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { PRODUCTS, getProductPrice } from '../data/products';
 import ProductCard from '../components/ProductCard';
 import SearchAndFilter from '../components/SearchAndFilter';
+import { trackSearch } from '../utils/analytics';
 import './SearchResults.css';
+
 
 const SearchResults = ({ onProductClick }) => {
   const [searchParams] = useSearchParams();
@@ -20,6 +22,9 @@ const SearchResults = ({ onProductClick }) => {
     const query = searchParams.get('q') || '';
     setSearchQuery(query);
     setProducts(PRODUCTS); // All products for global search
+    if (query.trim()) {
+      trackSearch(query.trim());
+    }
   }, [searchParams]);
 
   // Filter and sort products

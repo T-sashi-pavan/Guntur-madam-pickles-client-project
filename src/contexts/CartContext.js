@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { getProductPrice } from '../data/products';
+import { trackAddToCart, trackRemoveFromCart } from '../utils/analytics';
+
 
 // Cart Context
 const CartContext = createContext();
@@ -125,6 +127,14 @@ export const CartProvider = ({ children }) => {
       version: '1.0' // For future compatibility
     };
 
+    // Track combo add to cart
+    trackAddToCart({
+      id: comboId,
+      name_en: comboData.comboLabel,
+      category: 'Combo Special',
+      price: comboData.finalPrice
+    }, 'Combo', 1);
+
     setCartItems(prevItems => {
       const updatedItems = [...prevItems, comboItem];
       console.log('Combo added to cart:', comboItem);
@@ -138,6 +148,9 @@ export const CartProvider = ({ children }) => {
       const price = getProductPrice(product.id, size);
       const cartItemId = `${product.id}-${size}`;
       
+      // Track add to cart
+      trackAddToCart(product, size, quantity);
+
       setCartItems(prevItems => {
         const existingItem = prevItems.find(item => item.cartItemId === cartItemId);
         
@@ -183,6 +196,18 @@ export const CartProvider = ({ children }) => {
 
   // Remove item from cart (handles both individual items and combos)
   const removeFromCart = (cartItemId) => {
+    // Find the item to track before removal
+    const itemToRemove = cartItems.find(item => item.cartItemId === cartItemId);
+    if (itemToRemove) {
+      const mockProduct = {
+        id: itemToRemove.productId || itemToRemove.cartItemId,
+        name_en: itemToRemove.name_en || itemToRemove.comboLabel,
+        category: itemToRemove.category || (itemToRemove.type === 'combo' ? 'Combo Special' : ''),
+        price: itemToRemove.price || itemToRemove.finalPrice || 0
+      };
+      trackRemoveFromCart(mockProduct, itemToRemove.size || 'Combo', itemToRemove.quantity || 1);
+    }
+
     setCartItems(prevItems => {
       const itemToRemove = prevItems.find(item => item.cartItemId === cartItemId);
       if (itemToRemove) {

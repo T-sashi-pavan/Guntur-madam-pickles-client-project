@@ -4,7 +4,9 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { CATEGORIES, PRODUCTS, getProductPrice } from '../data/products';
 import ProductCard from '../components/ProductCard';
 import SearchAndFilter from '../components/SearchAndFilter';
+import { trackCategoryView } from '../utils/analytics';
 import './CategoryPage.css';
+
 
 // Category mappings for display names
 const categoryMappings = {
@@ -64,6 +66,8 @@ const CategoryPage = ({ onProductClick }) => {
       );
       setProducts(categoryProducts);
       setFilteredProducts(categoryProducts);
+      // Track category view event in GA4
+      trackCategoryView(categoryMapping.en);
     }
   }, [category]);
 

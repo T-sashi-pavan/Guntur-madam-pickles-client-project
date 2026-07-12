@@ -3,6 +3,8 @@ import './Footer.css'
 import Logo from '../assets/logo.png'
 import { useLanguage } from '../contexts/LanguageContext'
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp, FaInstagram, FaFacebook, FaShare } from 'react-icons/fa'
+import { trackPhoneCall, trackWhatsAppClick } from '../utils/analytics'
+
 
 const Footer = () => {
     const { language } = useLanguage();
@@ -73,7 +75,13 @@ const Footer = () => {
                             <button className="social-icon instagram" onClick={() => console.log('Instagram coming soon')}>
                                 <FaInstagram />
                             </button>
-                            <a href="https://wa.me/919876543210" className="social-icon whatsapp">
+                            <a 
+                              href="https://wa.me/917702721323" 
+                              className="social-icon whatsapp"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => trackWhatsAppClick('footer_social')}
+                            >
                                 <FaWhatsapp />
                             </a>
                         </div>
@@ -102,10 +110,15 @@ const Footer = () => {
                             <FaMapMarkerAlt className="contact-icon" />
                             <span>{content.address}</span>
                         </div>
-                        <div className="contact-item">
+                        <a 
+                          href="tel:+917702721323" 
+                          className="contact-item" 
+                          onClick={() => trackPhoneCall()}
+                          style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}
+                        >
                             <FaPhone className="contact-icon" />
                             <span>+91 7702721323</span>
-                        </div>
+                        </a>
                         <div className="contact-item">
                             <FaEnvelope className="contact-icon" />
                             <span>gunturmadampickles@gmail.com</span>

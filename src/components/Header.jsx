@@ -7,8 +7,10 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useCart } from '../contexts/CartContext';
 import { CATEGORIES } from '../data/products';
 import LiveSearch from './LiveSearch';
+import { trackPhoneCall } from '../utils/analytics';
 import "./Header.css";
 import Logo from '../assets/logo.png';
+
 
 const Navbar = ({ onCartToggle }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -131,10 +133,15 @@ const Navbar = ({ onCartToggle }) => {
                 {/* Right Side - Actions */}
                 <div className="navbar-right">
                     {/* Phone Number */}
-                    <div className="phone-number">
+                    <a 
+                      href="tel:+917702721323" 
+                      className="phone-number" 
+                      onClick={() => trackPhoneCall()}
+                      style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}
+                    >
                         <FaPhoneAlt className="phone-icon" />
                         <span>+91 77027 21323</span>
-                    </div>
+                    </a>
 
                     {/* Search Toggle */}
                     <button 

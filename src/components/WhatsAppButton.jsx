@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useCart } from '../contexts/CartContext';
+import { trackWhatsAppClick } from '../utils/analytics';
 import './WhatsAppButton.css';
+
 
 const WhatsAppButton = () => {
   const { language, t } = useLanguage();
@@ -54,13 +56,7 @@ const WhatsAppButton = () => {
     window.open(whatsappUrl, '_blank');
 
     // Add tracking analytics if needed
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'whatsapp_click', {
-        event_category: 'engagement',
-        event_label: safeCart.length > 0 ? 'cart_checkout' : 'general_inquiry',
-        value: safeCart.length
-      });
-    }
+    trackWhatsAppClick(safeCart.length > 0 ? 'cart_checkout' : 'general_inquiry');
   };
 
   return (

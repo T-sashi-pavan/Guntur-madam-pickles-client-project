@@ -18,6 +18,8 @@ import CategoryPage from './pages/CategoryPage';
 import SearchResults from './pages/SearchResults';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import AnalyticsTracker from './components/AnalyticsTracker';
+
 
 function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -64,6 +66,7 @@ function App() {
     <LanguageProvider>
       <CartProvider>
         <Router>
+          <AnalyticsTracker />
           <div className="App">
             {/* Navigation */}
             <Navbar onCartToggle={handleCartToggle} />

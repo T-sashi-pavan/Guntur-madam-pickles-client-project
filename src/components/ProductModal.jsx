@@ -3,7 +3,9 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useCart } from '../contexts/CartContext';
 import { AiOutlineClose, AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import { FaFire, FaLeaf, FaClock } from 'react-icons/fa';
+import { trackProductView } from '../utils/analytics';
 import './ProductModal.css';
+
 
 const ProductModal = ({ product, isOpen, onClose }) => {
   const { currentLanguage } = useLanguage();
@@ -26,6 +28,9 @@ const ProductModal = ({ product, isOpen, onClose }) => {
       }
       setQuantity(1);
       setIsImageLoaded(false);
+      
+      // Track product view event in GA4
+      trackProductView(product);
       
       // Add slight delay for smooth animation
       setTimeout(() => setIsVisible(true), 10);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useCart } from '../contexts/CartContext';
+import { trackBeginCheckout, trackPurchase, trackWhatsAppClick } from '../utils/analytics';
 import './CartDrawer.css';
 
 const CartDrawer = ({ isOpen, onClose }) => {
@@ -41,6 +42,15 @@ const CartDrawer = ({ isOpen, onClose }) => {
   const handleCheckout = () => {
     setIsCheckingOut(true);
     
+    // Track begin checkout and purchase events
+    trackWhatsAppClick('cart_checkout');
+    trackBeginCheckout(safeCart, totalPrice);
+    trackPurchase({
+      transactionId: `order_${Date.now()}`,
+      totalPrice: totalPrice,
+      items: safeCart
+    });
+
     // Generate WhatsApp message
     const message = getFormattedWhatsAppMessage();
     const whatsappUrl = `https://wa.me/917702721323?text=${encodeURIComponent(message)}`;

@@ -5,7 +5,9 @@ import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useCart } from '../contexts/CartContext';
 import { PRODUCTS } from '../data/products';
+import { trackProductView, trackWhatsAppClick, trackBeginCheckout, trackPurchase } from '../utils/analytics';
 import './ProductDetailsPage.css';
+
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
@@ -28,6 +30,8 @@ const ProductDetailsPage = () => {
       if (foundProduct.prices && Object.keys(foundProduct.prices).length > 0) {
         setSelectedSize(Object.keys(foundProduct.prices)[0]);
       }
+      // Track product view in GA4
+      trackProductView(foundProduct);
     }
   }, [id]);
 
@@ -100,7 +104,25 @@ const ProductDetailsPage = () => {
       `Hi! I would like to order ${productName} (${selectedSize}) - Quantity: ${quantity}. Price: ₹${totalPrice}`,
       `నమస్కారం! నేను ${productName} (${selectedSize}) ఆర్డర్ చేయాలనుకుంటున్నాను - పరిమాణం: ${quantity}. ధర: ₹${totalPrice}`
     );
-    const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/917702721323?text=${encodeURIComponent(message)}`;
+    
+    // Track GA4 events
+    trackWhatsAppClick('direct_product_order');
+    const orderItem = {
+      productId: product.id,
+      name_en: product.name_en,
+      category: product.category,
+      size: selectedSize,
+      price: currentPrice,
+      quantity: quantity
+    };
+    trackBeginCheckout([orderItem], totalPrice);
+    trackPurchase({
+      transactionId: `order_${Date.now()}`,
+      totalPrice: totalPrice,
+      items: [orderItem]
+    });
+
     window.open(whatsappUrl, '_blank');
   };
 
