@@ -6,7 +6,11 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useCart } from '../contexts/CartContext';
 import { PRODUCTS } from '../data/products';
 import { trackProductView, trackWhatsAppClick, trackBeginCheckout, trackPurchase } from '../utils/analytics';
+import SEO from '../components/SEO';
+import { getProductSchema, getBreadcrumbSchema } from '../utils/schema';
+import ResponsiveImage from '../components/ResponsiveImage';
 import './ProductDetailsPage.css';
+
 
 
 const ProductDetailsPage = () => {
@@ -64,6 +68,15 @@ const ProductDetailsPage = () => {
   
   const productName = currentLanguage === 'te' ? product.name_te : product.name_en;
   const productDescription = currentLanguage === 'te' ? product.description_te : product.description_en;
+
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: product.category, url: `/category/${product.category.toLowerCase().replace(/\s+/g, '-')}` },
+    { name: product.name_en, url: `/product/${product.id}` }
+  ]);
+  const productSchema = getProductSchema(product, selectedSize);
+  const detailsSchemas = [breadcrumbSchema, productSchema];
+
 
   const handleSizeChange = (size) => {
     setSelectedSize(size);
@@ -128,6 +141,14 @@ const ProductDetailsPage = () => {
 
   return (
     <div className="product-details-page">
+      <SEO 
+        title={productName}
+        description={`${productName} - ${productDescription || 'Buy traditional homemade pickles from Guntur Madam Pickles.'} Price: ₹${currentPrice}. 100% Organic, authentic Andhra taste.`}
+        keywords={`${product.name_en}, buy ${product.name_en} online, ${product.name_te}, guntur madam ${product.name_en}, organic pickles`}
+        image={product.image}
+        type="product"
+        schemas={detailsSchemas}
+      />
       {/* Header */}
       <div className="product-header">
         <button 
@@ -163,10 +184,12 @@ const ProductDetailsPage = () => {
         {/* Product Images */}
         <div className="product-images-section">
           <div className="main-image-container">
-            <img
+            <ResponsiveImage
               src={product.image}
               alt={productName}
               className={`main-product-image ${isImageLoaded ? 'loaded' : ''}`}
+              width={600}
+              height={600}
               onLoad={() => setIsImageLoaded(true)}
             />
             <div className="category-badge" style={{

@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useCart } from "../contexts/CartContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import ProductModal from "./ProductModal";
+import ResponsiveImage from "./ResponsiveImage";
 import "./ProductCard.css";
+
 
 const ProductCard = ({ product }) => {
   const [selectedSize, setSelectedSize] = useState("");
@@ -91,10 +93,12 @@ const ProductCard = ({ product }) => {
           </button>
           
           {product.image ? (
-            <img
+            <ResponsiveImage
               src={product.image}
               alt={getProductName()}
               className={`product-image ${imageLoaded ? "loaded" : ""}`}
+              width={300}
+              height={300}
               onLoad={() => setImageLoaded(true)}
               onError={(e) => { e.target.onerror = null; e.target.src = '/path/to/placeholder.jpg'; }} // Fallback for broken images
             />

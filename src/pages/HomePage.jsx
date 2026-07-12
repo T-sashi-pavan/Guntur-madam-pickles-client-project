@@ -4,10 +4,17 @@ import About from '../components/About';
 import AdSense from '../components/AdSense'; // Google AdSense component
 // import ComboSection from '../components/ComboSection'; // Commented out - Replaced with AllProductsSection
 import AllProductsSection from '../components/AllProductsSection';
+import SEO from '../components/SEO';
+
 
 const HomePage = () => {
   return (
     <div>
+      <SEO 
+        title="Authentic Andhra Pickles & Sweets"
+        description="Guntur Madam Pickles offers authentic traditional pickles, karam podulu, and traditional sweets made in Guntur, Andhra Pradesh. 100% organic and homemade taste."
+        keywords="andhra pickles online, buy pickles online, guntur pickles, homemade pickles, spice powders, andhra sweets, organic pickles"
+      />
       <HeroSection />
       
       {/* Top Banner Ad - after hero section */}

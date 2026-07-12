@@ -238,3 +238,52 @@ export const trackCategoryView = (category) => {
     item_list_name: category,
   });
 };
+
+let isClarityInitialized = false;
+
+// Retrieve Clarity Project ID from environment variables
+export const getClarityId = () => {
+  if (typeof window !== 'undefined') {
+    return (
+      process.env.VITE_CLARITY_ID ||
+      process.env.REACT_APP_CLARITY_ID ||
+      window.VITE_CLARITY_ID
+    );
+  }
+  return null;
+};
+
+// Initialize Microsoft Clarity tag
+export const initializeClarity = () => {
+  if (typeof window === 'undefined') return;
+
+  // Prevent duplicate initialization
+  if (isClarityInitialized || window.clarity_initialized) {
+    return;
+  }
+
+  // Initialize Clarity only in production environment
+  if (process.env.NODE_ENV !== 'production') {
+    return;
+  }
+
+  const clarityId = getClarityId();
+
+  if (!clarityId) {
+    return;
+  }
+
+  try {
+    // Inject Clarity async tracking tag script
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", clarityId);
+
+    isClarityInitialized = true;
+    window.clarity_initialized = true;
+  } catch (error) {
+    console.error('Error during Microsoft Clarity initialization:', error);
+  }
+};

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { initializeAnalytics, trackPageView } from '../utils/analytics';
+import { initializeAnalytics, trackPageView, initializeClarity } from '../utils/analytics';
 
 const AnalyticsTracker = () => {
   const location = useLocation();
@@ -8,6 +8,7 @@ const AnalyticsTracker = () => {
   useEffect(() => {
     // Automatically initialize analytics when component mounts (application loads)
     initializeAnalytics();
+    initializeClarity();
   }, []);
 
   useEffect(() => {

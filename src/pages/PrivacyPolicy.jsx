@@ -1,8 +1,21 @@
 import React from 'react';
+import SEO from '../components/SEO';
+import { getBreadcrumbSchema } from '../utils/schema';
 
 const PrivacyPolicy = () => {
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Privacy Policy', url: '/privacy-policy' }
+  ]);
+
   return (
     <div style={styles.container}>
+      <SEO 
+        title="Privacy Policy"
+        description="Read our Privacy Policy to understand how Guntur Madam Pickles collects, uses, and safeguards your personal data when using our website."
+        keywords="privacy policy, data collection, cookie policy, secure checkout"
+        schemas={[breadcrumbSchema]}
+      />
       <div style={styles.content}>
         <h1 style={styles.title}>Privacy Policy</h1>
         <p style={styles.date}><strong>Last Updated:</strong> February 11, 2026</p>

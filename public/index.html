@@ -25,20 +25,144 @@
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
+    <!-- Preload critical hero assets -->
+    <link rel="preload" as="image" href="%PUBLIC_URL%/favicon.png" />
+
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts Preconnect and Asynchronous Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Noto+Sans+Telugu:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Model Viewer for 3D models -->
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Noto+Sans+Telugu:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Noto+Sans+Telugu:wght@300;400;500;600;700&display=swap">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Noto+Sans+Telugu:wght@300;400;500;600;700&display=swap">
+    </noscript>
     
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5617473918245706"
      crossorigin="anonymous"></script>
-    
+
+    <!-- Schema.org Static Structured Data (@graph) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://gunturmadampickles.live/#website",
+          "name": "Guntur Madam Pickles",
+          "url": "https://gunturmadampickles.live",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://gunturmadampickles.live/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://gunturmadampickles.live/#organization",
+          "name": "Guntur Madam Pickles",
+          "url": "https://gunturmadampickles.live",
+          "logo": "https://gunturmadampickles.live/logo512.png",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91-7702721323",
+            "contactType": "customer service",
+            "areaServed": "IN",
+            "availableLanguage": ["English", "Telugu"]
+          },
+          "sameAs": [
+            "https://wa.me/917702721323"
+          ]
+        },
+        {
+          "@type": "FoodEstablishment",
+          "@id": "https://gunturmadampickles.live/#localbusiness",
+          "name": "Guntur Madam Pickles",
+          "image": "https://gunturmadampickles.live/logo512.png",
+          "url": "https://gunturmadampickles.live",
+          "telephone": "+917702721323",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Guntur",
+            "addressLocality": "Guntur",
+            "addressRegion": "Andhra Pradesh",
+            "postalCode": "522001",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "16.3067",
+            "longitude": "80.4365"
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "09:00",
+            "closes": "21:00"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://gunturmadampickles.live/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Are Guntur Madam Pickles genuinely homemade and authentic Andhra style?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Guntur Madam Pickles are 100% homemade in Guntur, Andhra Pradesh, following traditional age-old recipes. We use premium wood-pressed oils, hand-ground spices, and organic produce without any artificial preservatives or colors."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you deliver pickles across India and internationally?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, we ship our authentic pickles all across India. For international orders, please contact us directly on WhatsApp to coordinate delivery and custom shipping rates."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What varieties of pickles do you offer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We offer a wide range of vegetarian pickles (like Andhra Avakaya, Allam, Cashew, Cauliflower, Gongura, Usirikaya), non-vegetarian pickles (Chicken, Mutton, Prawns), as well as traditional spice powders (Karam Podulu) and Andhra sweets."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can I place an order?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can easily browse and select your favorite products on our website, select the desired package size, add them to your cart, and proceed to checkout. The checkout will direct you to WhatsApp, where you can finalize payment and share your shipping address with us."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How should I store the pickles to ensure they stay fresh?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "To maximize shelf life, store the pickles in a cool, dry place inside an airtight glass or ceramic container. Always use a clean, dry spoon to serve. If handled correctly, our pickles can stay fresh for up to 6–12 months."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.

@@ -1,100 +1,100 @@
 // Import images
-import mango from '../assets/mango.png';
-import lemon from '../assets/lemon.png';
-import garlic from '../assets/garlic.png';
-import ginger from '../assets/ginger.png';
-import carrot from '../assets/carrot.png';
-import tomato from '../assets/tomato.png';
-import amla from '../assets/amla.png';
-import turmeric from '../assets/turmeric.png';
-import bael from '../assets/bael.png';
-import karanda from '../assets/karanda.png';
-import redGreenChilli from '../assets/red green chilli.png';
+import mango from '../assets/mango.webp';
+import lemon from '../assets/lemon.webp';
+import garlic from '../assets/garlic.webp';
+import ginger from '../assets/ginger.webp';
+import carrot from '../assets/carrot.webp';
+import tomato from '../assets/tomato.webp';
+import amla from '../assets/amla.webp';
+import turmeric from '../assets/turmeric.webp';
+import bael from '../assets/bael.webp';
+import karanda from '../assets/karanda.webp';
+import redGreenChilli from '../assets/red green chilli.webp';
 
 // Import Veg Pickles images
-import andhra_avakaya from '../assets/veg_pickles/Andhra Avakaya Pickle.png';
-import allam_pickle from '../assets/veg_pickles/Allam Pickle.png';
-import cashew_pickle from '../assets/veg_pickles/Cashew Pickle.png';
-import cauliflower_avakaya from '../assets/veg_pickles/Cauliflower Avakaya.png';
-import chinthakaya_pachadi from '../assets/veg_pickles/Chinthakaya Pachadi (Raw).png';
-import garlic_pickle from '../assets/veg_pickles/Garlic Pickle.png';
-import gongura_pandumirchi from '../assets/veg_pickles/Gongura Pandumirchi Pickle.png';
-import gongura_karam from '../assets/veg_pickles/Gongura pickle with karam.png';
-import gongura_pickle from '../assets/veg_pickles/Gongura Pickle.png';
-import kakarakai_pachadi from '../assets/veg_pickles/Kakarakai Pachadi.png';
-import kottimeera_pachadi from '../assets/veg_pickles/Kottimeera Pachadi.png';
-import lemon_pickle from '../assets/veg_pickles/Lemon Pickle.png';
-import maagaya_pickle from '../assets/veg_pickles/Maagaya Pickle.png';
-import mango_thurumu from '../assets/veg_pickles/Mango Thurumu pickle.png';
-import pandumirchi_pickle from '../assets/veg_pickles/Pandumirchi Pickle.png';
-import pudhina_pachadi from '../assets/veg_pickles/Pudhina Pachadi.png';
-import sweet_mango from '../assets/veg_pickles/Sweet Mango Pickle.png';
-import tamota_pandumirchi from '../assets/veg_pickles/Tamota Pandumirchi pickle.png';
-import tamota_pickle from '../assets/veg_pickles/Tamota Pickle.png';
-import usirikaya_pachadi from '../assets/veg_pickles/Usirikaya Pachadi.png';
-import usirikaya_thokudu from '../assets/veg_pickles/Usirikaya Thokudu Pachadi.png';
+import andhra_avakaya from '../assets/veg_pickles/Andhra Avakaya Pickle.webp';
+import allam_pickle from '../assets/veg_pickles/Allam Pickle.webp';
+import cashew_pickle from '../assets/veg_pickles/Cashew Pickle.webp';
+import cauliflower_avakaya from '../assets/veg_pickles/Cauliflower Avakaya.webp';
+import chinthakaya_pachadi from '../assets/veg_pickles/Chinthakaya Pachadi (Raw).webp';
+import garlic_pickle from '../assets/veg_pickles/Garlic Pickle.webp';
+import gongura_pandumirchi from '../assets/veg_pickles/Gongura Pandumirchi Pickle.webp';
+import gongura_karam from '../assets/veg_pickles/Gongura pickle with karam.webp';
+import gongura_pickle from '../assets/veg_pickles/Gongura Pickle.webp';
+import kakarakai_pachadi from '../assets/veg_pickles/Kakarakai Pachadi.webp';
+import kottimeera_pachadi from '../assets/veg_pickles/Kottimeera Pachadi.webp';
+import lemon_pickle from '../assets/veg_pickles/Lemon Pickle.webp';
+import maagaya_pickle from '../assets/veg_pickles/Maagaya Pickle.webp';
+import mango_thurumu from '../assets/veg_pickles/Mango Thurumu pickle.webp';
+import pandumirchi_pickle from '../assets/veg_pickles/Pandumirchi Pickle.webp';
+import pudhina_pachadi from '../assets/veg_pickles/Pudhina Pachadi.webp';
+import sweet_mango from '../assets/veg_pickles/Sweet Mango Pickle.webp';
+import tamota_pandumirchi from '../assets/veg_pickles/Tamota Pandumirchi pickle.webp';
+import tamota_pickle from '../assets/veg_pickles/Tamota Pickle.webp';
+import usirikaya_pachadi from '../assets/veg_pickles/Usirikaya Pachadi.webp';
+import usirikaya_thokudu from '../assets/veg_pickles/Usirikaya Thokudu Pachadi.webp';
 
 // Import Non-Veg Pickles images
-import chicken_boneless_pickle from '../assets/Non_veg_pickles/Chicken Boneless Pickle.png';
-import chicken_bones_pickle from '../assets/Non_veg_pickles/Chicken Bones Pickle.png';
-import gongura_chicken_boneless_pickle from '../assets/Non_veg_pickles/Gongura Chicken Boneless Pickle.png';
-import gongura_chicken_bones_pickle from '../assets/Non_veg_pickles/Gongura Chicken Bones Pickle.png';
-import gongura_mutton_boneless_pickle from '../assets/Non_veg_pickles/Gongura Mutton Boneless Pickle.png';
-import gongura_mutton_bones_pickle from '../assets/Non_veg_pickles/Gongura Mutton Bones Pickle.png';
-import gongura_prawns_pickle from '../assets/Non_veg_pickles/Gongura Prawns Pickle.png';
-import mutton_boneless_pickle from '../assets/Non_veg_pickles/Mutton Boneless Pickle.png';
-import mutton_bones_pickle from '../assets/Non_veg_pickles/Mutton Bones Pickle.png';
-import prawns_pickle from '../assets/Non_veg_pickles/Prawns Pickle.png';
+import chicken_boneless_pickle from '../assets/Non_veg_pickles/Chicken Boneless Pickle.webp';
+import chicken_bones_pickle from '../assets/Non_veg_pickles/Chicken Bones Pickle.webp';
+import gongura_chicken_boneless_pickle from '../assets/Non_veg_pickles/Gongura Chicken Boneless Pickle.webp';
+import gongura_chicken_bones_pickle from '../assets/Non_veg_pickles/Gongura Chicken Bones Pickle.webp';
+import gongura_mutton_boneless_pickle from '../assets/Non_veg_pickles/Gongura Mutton Boneless Pickle.webp';
+import gongura_mutton_bones_pickle from '../assets/Non_veg_pickles/Gongura Mutton Bones Pickle.webp';
+import gongura_prawns_pickle from '../assets/Non_veg_pickles/Gongura Prawns Pickle.webp';
+import mutton_boneless_pickle from '../assets/Non_veg_pickles/Mutton Boneless Pickle.webp';
+import mutton_bones_pickle from '../assets/Non_veg_pickles/Mutton Bones Pickle.webp';
+import prawns_pickle from '../assets/Non_veg_pickles/Prawns Pickle.webp';
 
 // Import Karam Podulu images
-import idli_karam_powder from '../assets/karam_podulu/Idli Karam powder.png';
-import kakarakaya_karam from '../assets/karam_podulu/Kakarakaya Karam (Bitter Gourd Powder).png';
-import kandi_podi from '../assets/karam_podulu/Kandi Podi.png';
-import karivepaku_karam from '../assets/karam_podulu/Karivepaku Karam.png';
-import kobbari_karam from '../assets/karam_podulu/Kobbari Karam.png';
-import munagaku_karam from '../assets/karam_podulu/Munagaku Karam.png';
-import nallakaram from '../assets/karam_podulu/Nallakaram.png';
-import nuvvula_karam from '../assets/karam_podulu/Nuvvula Karam.png';
-import palli_karam from '../assets/karam_podulu/Palli Karam.png';
-import vellulli_karam from '../assets/karam_podulu/Vellulli Karam.png';
+import idli_karam_powder from '../assets/karam_podulu/Idli Karam powder.webp';
+import kakarakaya_karam from '../assets/karam_podulu/Kakarakaya Karam (Bitter Gourd Powder).webp';
+import kandi_podi from '../assets/karam_podulu/Kandi Podi.webp';
+import karivepaku_karam from '../assets/karam_podulu/Karivepaku Karam.webp';
+import kobbari_karam from '../assets/karam_podulu/Kobbari Karam.webp';
+import munagaku_karam from '../assets/karam_podulu/Munagaku Karam.webp';
+import nallakaram from '../assets/karam_podulu/Nallakaram.webp';
+import nuvvula_karam from '../assets/karam_podulu/Nuvvula Karam.webp';
+import palli_karam from '../assets/karam_podulu/Palli Karam.webp';
+import vellulli_karam from '../assets/karam_podulu/Vellulli Karam.webp';
 
 // Import Specials images
-import buffalo_ghee from '../assets/specials/Buffalo Ghee.png';
-import chalimidi from '../assets/specials/Chalimidi.png';
-import chintapandu_paste from '../assets/specials/Chintapandu Paste.png';
-import chintha_chiguru_powder from '../assets/specials/Chintha Chiguru Powder.png';
-import gongura_leaves from '../assets/specials/Gongura leaves.png';
-import guntur_karam from '../assets/specials/Guntur Karam.png';
-import guntur_kura_karam from '../assets/specials/Guntur Kura Karam.png';
-import kakarkaya_oins from '../assets/specials/Kakarkaya Oins.png';
-import kakarkaya_senagapapu_karam from '../assets/specials/Kakarkaya Senagapapu Karam.png';
-import pulihora_paste from '../assets/specials/Pulihora Paste.png';
+import buffalo_ghee from '../assets/specials/Buffalo Ghee.webp';
+import chalimidi from '../assets/specials/Chalimidi.webp';
+import chintapandu_paste from '../assets/specials/Chintapandu Paste.webp';
+import chintha_chiguru_powder from '../assets/specials/Chintha Chiguru Powder.webp';
+import gongura_leaves from '../assets/specials/Gongura leaves.webp';
+import guntur_karam from '../assets/specials/Guntur Karam.webp';
+import guntur_kura_karam from '../assets/specials/Guntur Kura Karam.webp';
+import kakarkaya_oins from '../assets/specials/Kakarkaya Oins.webp';
+import kakarkaya_senagapapu_karam from '../assets/specials/Kakarkaya Senagapapu Karam.webp';
+import pulihora_paste from '../assets/specials/Pulihora Paste.webp';
 
 // Import Sweets images
-import ariselu_and_boorelu from '../assets/sweets/Ariselu and Boorelu.png';
-import bellam_gavvalu from '../assets/sweets/Bellam Gavvalu.png';
-import boorelu_sweet_lentil_fritters from '../assets/sweets/Boorelu (Sweet Lentil Fritters).png';
-import chalimidi_sweet from '../assets/sweets/Chalimidi.png';
-import coconut_boorelu from '../assets/sweets/Coconut Boorelu.png';
-import ghee_filled_laddoos from '../assets/sweets/ghee-filled Laddoos.png';
-import kajjikayalu_senagapappu from '../assets/sweets/Kajjikayalu with Senagapappu, Coconut Powder, and Bellam.png';
-import kajjikayalu_sooji from '../assets/sweets/Kajjikayalu with Sooji and Sugar.png';
-import kummundalu_bellam from '../assets/sweets/Kummundalu (Bellam).png';
-import laddoos from '../assets/sweets/Laddoos.png';
-import nethi_ariselu from '../assets/sweets/Nethi Ariselu.png';
-import nuvvula_arisalu_nethi from '../assets/sweets/Nuvvula Arisalu (Nethi).png';
-import nuvvula_laddu_sesame_jaggery from '../assets/sweets/Nuvvula Laddu (Sesame Jaggery Laddoos).png';
+import ariselu_and_boorelu from '../assets/sweets/Ariselu and Boorelu.webp';
+import bellam_gavvalu from '../assets/sweets/Bellam Gavvalu.webp';
+import boorelu_sweet_lentil_fritters from '../assets/sweets/Boorelu (Sweet Lentil Fritters).webp';
+import chalimidi_sweet from '../assets/sweets/Chalimidi.webp';
+import coconut_boorelu from '../assets/sweets/Coconut Boorelu.webp';
+import ghee_filled_laddoos from '../assets/sweets/ghee-filled Laddoos.webp';
+import kajjikayalu_senagapappu from '../assets/sweets/Kajjikayalu with Senagapappu, Coconut Powder, and Bellam.webp';
+import kajjikayalu_sooji from '../assets/sweets/Kajjikayalu with Sooji and Sugar.webp';
+import kummundalu_bellam from '../assets/sweets/Kummundalu (Bellam).webp';
+import laddoos from '../assets/sweets/Laddoos.webp';
+import nethi_ariselu from '../assets/sweets/Nethi Ariselu.webp';
+import nuvvula_arisalu_nethi from '../assets/sweets/Nuvvula Arisalu (Nethi).webp';
+import nuvvula_laddu_sesame_jaggery from '../assets/sweets/Nuvvula Laddu (Sesame Jaggery Laddoos).webp';
 
 // Import Andhra Specials images
-import andhra_avakaya_pachadi from '../assets/andhra_specials/Andhra Avakaya Pachadi.png';
-import guntur_karam_kurakaram from '../assets/andhra_specials/Guntur Karam (Kurakaram).png';
-import guntur_karam_plain_special from '../assets/andhra_specials/Guntur Karam (Plain).png';
-import pulihora_gongura_pickle from '../assets/andhra_specials/Pulihora Gongura Pickle.png';
+import andhra_avakaya_pachadi from '../assets/andhra_specials/Andhra Avakaya Pachadi.webp';
+import guntur_karam_kurakaram from '../assets/andhra_specials/Guntur Karam (Kurakaram).webp';
+import guntur_karam_plain_special from '../assets/andhra_specials/Guntur Karam (Plain).webp';
+import pulihora_gongura_pickle from '../assets/andhra_specials/Pulihora Gongura Pickle.webp';
 
 // Import Hot images
-import chakralu from '../assets/hot/Chakralu.png';
-import chekkalu from '../assets/hot/Chekkalu.png';
-import karapu_boondi from '../assets/hot/Karapu Boondi.png';
+import chakralu from '../assets/hot/Chakralu.webp';
+import chekkalu from '../assets/hot/Chekkalu.webp';
+import karapu_boondi from '../assets/hot/Karapu Boondi.webp';
 
 // Product Categories
 export const CATEGORIES = {

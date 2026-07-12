@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { AiOutlineSearch, AiOutlineClear } from 'react-icons/ai';
 import { useLanguage } from '../contexts/LanguageContext';
 import { PRODUCTS } from '../data/products';
+import ResponsiveImage from './ResponsiveImage';
 import './LiveSearch.css';
+
 
 const LiveSearch = ({ isOpen, onClose, className }) => {
   const [query, setQuery] = useState('');
@@ -239,10 +241,11 @@ const LiveSearch = ({ isOpen, onClose, className }) => {
               aria-selected={index === activeSuggestion}
             >
               <div className="suggestion-image">
-                <img 
+                <ResponsiveImage 
                   src={product.image} 
                   alt={currentLanguage === 'te' ? product.name_te : product.name_en}
-                  loading="lazy"
+                  width={50}
+                  height={50}
                 />
               </div>
               

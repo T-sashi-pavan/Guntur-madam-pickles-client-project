@@ -4,7 +4,9 @@ import { useCart } from '../contexts/CartContext';
 import { AiOutlineClose, AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import { FaFire, FaLeaf, FaClock } from 'react-icons/fa';
 import { trackProductView } from '../utils/analytics';
+import ResponsiveImage from './ResponsiveImage';
 import './ProductModal.css';
+
 
 
 const ProductModal = ({ product, isOpen, onClose }) => {
@@ -164,13 +166,15 @@ const ProductModal = ({ product, isOpen, onClose }) => {
           {/* Product Image Section */}
           <div className="product-image-section">
             <div className="image-container">
-              <img 
+              <ResponsiveImage 
                 src={product.image} 
                 alt={currentLanguage === 'te' ? product.name_te : product.name_en}
                 className={`product-image ${isImageLoaded ? 'loaded' : ''}`}
+                width={400}
+                height={400}
                 onLoad={() => setIsImageLoaded(true)}
                 onError={(e) => {
-                  e.target.src = '/placeholder-image.png'; // Fallback image
+                  e.target.src = '/placeholder-image.webp'; // Fallback image
                 }}
               />
               {!isImageLoaded && (

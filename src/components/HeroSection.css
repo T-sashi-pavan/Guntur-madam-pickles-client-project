@@ -182,7 +182,7 @@
 .brand-logo {
   width: 180px;
   height: 180px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 240, 0.9) 100%), url("../assets/logo.png");
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 240, 0.9) 100%), url("../assets/logo.webp");
   background-size: cover, cover;
   background-repeat: no-repeat, no-repeat;
   background-position: center, center;
@@ -321,16 +321,16 @@
 .orbit-ring-3 .pickle-icon:nth-child(2) { bottom: 10%; left: 50%; transform: translateX(-50%); }
 
 /* Pickle Icon Backgrounds */
-.pickle-mango { background-image: url("../assets/mango.png"); }
-.pickle-lemon { background-image: url("../assets/lemon.png"); }
-.pickle-chilli { background-image: url("../assets/red green chilli.png"); }
-.pickle-amla { background-image: url("../assets/amla.png"); }
-.pickle-garlic { background-image: url("../assets/garlic.png"); }
-.pickle-ginger { background-image: url("../assets/ginger.png"); }
-.pickle-carrot { background-image: url("../assets/carrot.png"); }
-.pickle-karanda { background-image: url("../assets/karanda.png"); }
-.pickle-tomato { background-image: url("../assets/tomato.png"); }
-.pickle-bael { background-image: url("../assets/bael.png"); }
+.pickle-mango { background-image: url("../assets/mango.webp"); }
+.pickle-lemon { background-image: url("../assets/lemon.webp"); }
+.pickle-chilli { background-image: url("../assets/red green chilli.webp"); }
+.pickle-amla { background-image: url("../assets/amla.webp"); }
+.pickle-garlic { background-image: url("../assets/garlic.webp"); }
+.pickle-ginger { background-image: url("../assets/ginger.webp"); }
+.pickle-carrot { background-image: url("../assets/carrot.webp"); }
+.pickle-karanda { background-image: url("../assets/karanda.webp"); }
+.pickle-tomato { background-image: url("../assets/tomato.webp"); }
+.pickle-bael { background-image: url("../assets/bael.webp"); }
 
 /* Floating Particles */
 .floating-particles {

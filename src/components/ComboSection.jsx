@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useCart } from '../contexts/CartContext';
 import { useLanguage } from '../contexts/LanguageContext';
+import ResponsiveImage from './ResponsiveImage';
 
 // Add toast animation styles to the document head
 if (typeof document !== 'undefined' && !document.getElementById('toast-animations')) {
@@ -161,40 +162,40 @@ if (typeof document !== 'undefined' && !document.getElementById('toast-animation
 
 // --- Product Data with 21 Veg Pickles and 10 Non-Veg Pickles ---
 const vegPickles = [
-  { id: 'vp1', name: 'Andhra Avakaya Pickle', price: 600, type: 'veg', image: require('../assets/veg_pickles/Andhra Avakaya Pickle.png'), prices: { '1kg': 600, '500g': 300, '250g': 150 } },
-  { id: 'vp2', name: 'Allam Pickle', price: 400, type: 'veg', image: require('../assets/veg_pickles/Allam Pickle.png'), prices: { '1kg': 400, '500g': 200, '250g': 100 } },
-  { id: 'vp3', name: 'Cashew Pickle', price: 800, type: 'veg', image: require('../assets/veg_pickles/Cashew Pickle.png'), prices: { '1kg': 800, '500g': 400, '250g': 200 } },
-  { id: 'vp4', name: 'Cauliflower Avakaya', price: 500, type: 'veg', image: require('../assets/veg_pickles/Cauliflower Avakaya.png'), prices: { '1kg': 500, '500g': 250, '250g': 125 } },
-  { id: 'vp5', name: 'Chinthakaya Pachadi (Raw)', price: 350, type: 'veg', image: require('../assets/veg_pickles/Chinthakaya Pachadi (Raw).png'), prices: { '1kg': 350, '500g': 175, '250g': 100 } },
-  { id: 'vp6', name: 'Garlic Pickle', price: 600, type: 'veg', image: require('../assets/veg_pickles/Garlic Pickle.png'), prices: { '1kg': 600, '500g': 300, '250g': 150 } },
-  { id: 'vp7', name: 'Gongura Pandumirchi', price: 500, type: 'veg', image: require('../assets/veg_pickles/Gongura Pandumirchi Pickle.png'), prices: { '1kg': 500, '500g': 250, '250g': 125 } },
-  { id: 'vp8', name: 'Gongura Pickle (with karam)', price: 600, type: 'veg', image: require('../assets/veg_pickles/Gongura pickle with karam.png'), prices: { '1kg': 600, '500g': 300, '250g': 150 } },
-  { id: 'vp9', name: 'Gongura Pickle (with Red chilli flakes)', price: 600, type: 'veg', image: require('../assets/veg_pickles/Gongura Pickle.png'), prices: { '1kg': 600, '500g': 300, '250g': 150 } },
-  { id: 'vp10', name: 'Kakarakai Pachadi', price: 400, type: 'veg', image: require('../assets/veg_pickles/Kakarakai Pachadi.png'), prices: { '1kg': 400, '500g': 200, '250g': 125 } },
-  { id: 'vp11', name: 'Kottimeera Pachadi', price: 400, type: 'veg', image: require('../assets/veg_pickles/Kottimeera Pachadi.png'), prices: { '1kg': 400, '500g': 200, '250g': 125 } },
-  { id: 'vp12', name: 'Lemon Pickle', price: 400, type: 'veg', image: require('../assets/veg_pickles/Lemon Pickle.png'), prices: { '1kg': 400, '500g': 200, '250g': 100 } },
-  { id: 'vp13', name: 'Maagaya Pickle', price: 700, type: 'veg', image: require('../assets/veg_pickles/Maagaya Pickle.png'), prices: { '1kg': 700, '500g': 350, '250g': 125 } },
-  { id: 'vp14', name: 'Mango Thurumu Pachadi', price: 600, type: 'veg', image: require('../assets/veg_pickles/Mango Thurumu pickle.png'), prices: { '1kg': 600, '500g': 300, '250g': 150 } },
-  { id: 'vp15', name: 'Pandumirchi', price: 400, type: 'veg', image: require('../assets/veg_pickles/Pandumirchi Pickle.png'), prices: { '1kg': 400, '500g': 200, '250g': 100 } },
-  { id: 'vp16', name: 'Pudhina Pachadi', price: 400, type: 'veg', image: require('../assets/veg_pickles/Pudhina Pachadi.png'), prices: { '1kg': 400, '500g': 200, '250g': 125 } },
-  { id: 'vp17', name: 'Sweet Mango', price: 700, type: 'veg', image: require('../assets/veg_pickles/Sweet Mango Pickle.png'), prices: { '1kg': 700, '500g': 350, '250g': 250 } },
-  { id: 'vp18', name: 'Tamota Pandumirchi', price: 500, type: 'veg', image: require('../assets/veg_pickles/Tamota Pandumirchi pickle.png'), prices: { '1kg': 500, '500g': 250, '250g': 125 } },
-  { id: 'vp19', name: 'Tamota Pickle', price: 400, type: 'veg', image: require('../assets/veg_pickles/Tamota Pickle.png'), prices: { '1kg': 400, '500g': 200, '250g': 100 } },
-  { id: 'vp20', name: 'Usirikaya Pachadi', price: 500, type: 'veg', image: require('../assets/veg_pickles/Usirikaya Pachadi.png'), prices: { '1kg': 500, '500g': 250, '250g': 125 } },
-  { id: 'vp21', name: 'Usirikaya Thokudu Pachadi', price: 600, type: 'veg', image: require('../assets/veg_pickles/Usirikaya Thokudu Pachadi.png'), prices: { '1kg': 600, '500g': 250, '250g': 125 } },
+  { id: 'vp1', name: 'Andhra Avakaya Pickle', price: 600, type: 'veg', image: require('../assets/veg_pickles/Andhra Avakaya Pickle.webp'), prices: { '1kg': 600, '500g': 300, '250g': 150 } },
+  { id: 'vp2', name: 'Allam Pickle', price: 400, type: 'veg', image: require('../assets/veg_pickles/Allam Pickle.webp'), prices: { '1kg': 400, '500g': 200, '250g': 100 } },
+  { id: 'vp3', name: 'Cashew Pickle', price: 800, type: 'veg', image: require('../assets/veg_pickles/Cashew Pickle.webp'), prices: { '1kg': 800, '500g': 400, '250g': 200 } },
+  { id: 'vp4', name: 'Cauliflower Avakaya', price: 500, type: 'veg', image: require('../assets/veg_pickles/Cauliflower Avakaya.webp'), prices: { '1kg': 500, '500g': 250, '250g': 125 } },
+  { id: 'vp5', name: 'Chinthakaya Pachadi (Raw)', price: 350, type: 'veg', image: require('../assets/veg_pickles/Chinthakaya Pachadi (Raw).webp'), prices: { '1kg': 350, '500g': 175, '250g': 100 } },
+  { id: 'vp6', name: 'Garlic Pickle', price: 600, type: 'veg', image: require('../assets/veg_pickles/Garlic Pickle.webp'), prices: { '1kg': 600, '500g': 300, '250g': 150 } },
+  { id: 'vp7', name: 'Gongura Pandumirchi', price: 500, type: 'veg', image: require('../assets/veg_pickles/Gongura Pandumirchi Pickle.webp'), prices: { '1kg': 500, '500g': 250, '250g': 125 } },
+  { id: 'vp8', name: 'Gongura Pickle (with karam)', price: 600, type: 'veg', image: require('../assets/veg_pickles/Gongura pickle with karam.webp'), prices: { '1kg': 600, '500g': 300, '250g': 150 } },
+  { id: 'vp9', name: 'Gongura Pickle (with Red chilli flakes)', price: 600, type: 'veg', image: require('../assets/veg_pickles/Gongura Pickle.webp'), prices: { '1kg': 600, '500g': 300, '250g': 150 } },
+  { id: 'vp10', name: 'Kakarakai Pachadi', price: 400, type: 'veg', image: require('../assets/veg_pickles/Kakarakai Pachadi.webp'), prices: { '1kg': 400, '500g': 200, '250g': 125 } },
+  { id: 'vp11', name: 'Kottimeera Pachadi', price: 400, type: 'veg', image: require('../assets/veg_pickles/Kottimeera Pachadi.webp'), prices: { '1kg': 400, '500g': 200, '250g': 125 } },
+  { id: 'vp12', name: 'Lemon Pickle', price: 400, type: 'veg', image: require('../assets/veg_pickles/Lemon Pickle.webp'), prices: { '1kg': 400, '500g': 200, '250g': 100 } },
+  { id: 'vp13', name: 'Maagaya Pickle', price: 700, type: 'veg', image: require('../assets/veg_pickles/Maagaya Pickle.webp'), prices: { '1kg': 700, '500g': 350, '250g': 125 } },
+  { id: 'vp14', name: 'Mango Thurumu Pachadi', price: 600, type: 'veg', image: require('../assets/veg_pickles/Mango Thurumu pickle.webp'), prices: { '1kg': 600, '500g': 300, '250g': 150 } },
+  { id: 'vp15', name: 'Pandumirchi', price: 400, type: 'veg', image: require('../assets/veg_pickles/Pandumirchi Pickle.webp'), prices: { '1kg': 400, '500g': 200, '250g': 100 } },
+  { id: 'vp16', name: 'Pudhina Pachadi', price: 400, type: 'veg', image: require('../assets/veg_pickles/Pudhina Pachadi.webp'), prices: { '1kg': 400, '500g': 200, '250g': 125 } },
+  { id: 'vp17', name: 'Sweet Mango', price: 700, type: 'veg', image: require('../assets/veg_pickles/Sweet Mango Pickle.webp'), prices: { '1kg': 700, '500g': 350, '250g': 250 } },
+  { id: 'vp18', name: 'Tamota Pandumirchi', price: 500, type: 'veg', image: require('../assets/veg_pickles/Tamota Pandumirchi pickle.webp'), prices: { '1kg': 500, '500g': 250, '250g': 125 } },
+  { id: 'vp19', name: 'Tamota Pickle', price: 400, type: 'veg', image: require('../assets/veg_pickles/Tamota Pickle.webp'), prices: { '1kg': 400, '500g': 200, '250g': 100 } },
+  { id: 'vp20', name: 'Usirikaya Pachadi', price: 500, type: 'veg', image: require('../assets/veg_pickles/Usirikaya Pachadi.webp'), prices: { '1kg': 500, '500g': 250, '250g': 125 } },
+  { id: 'vp21', name: 'Usirikaya Thokudu Pachadi', price: 600, type: 'veg', image: require('../assets/veg_pickles/Usirikaya Thokudu Pachadi.webp'), prices: { '1kg': 600, '500g': 250, '250g': 125 } },
 ];
 
 const nonVegPickles = [
-  { id: 'nvp1', name: 'Chicken Boneless Pickle', price: 1500, type: 'non-veg', image: require('../assets/Non_veg_pickles/Chicken Boneless Pickle.png'), prices: { '1kg': 1500, '500g': 750, '250g': 400 } },
-  { id: 'nvp2', name: 'Chicken Bones Pickle', price: 1200, type: 'non-veg', image: require('../assets/Non_veg_pickles/Chicken Bones Pickle.png'), prices: { '1kg': 1200, '500g': 600, '250g': 300 } },
-  { id: 'nvp3', name: 'Gongura Chicken Boneless Pickle', price: 1200, type: 'non-veg', image: require('../assets/Non_veg_pickles/Gongura Chicken Boneless Pickle.png'), prices: { '1kg': 1200, '500g': 600, '250g': 300 } },
-  { id: 'nvp4', name: 'Gongura Chicken Bones Pickle', price: 1000, type: 'non-veg', image: require('../assets/Non_veg_pickles/Gongura Chicken Bones Pickle.png'), prices: { '1kg': 1000, '500g': 500, '250g': 250 } },
-  { id: 'nvp5', name: 'Gongura Mutton Boneless', price: 1500, type: 'non-veg', image: require('../assets/Non_veg_pickles/Gongura Mutton Boneless Pickle.png'), prices: { '1kg': 1500, '500g': 750, '250g': 500 } },
-  { id: 'nvp6', name: 'Gongura Mutton Bones', price: 1400, type: 'non-veg', image: require('../assets/Non_veg_pickles/Gongura Mutton Bones Pickle.png'), prices: { '1kg': 1400, '500g': 700, '250g': 350 } },
-  { id: 'nvp7', name: 'Gongura Prawns Pickle', price: 1400, type: 'non-veg', image: require('../assets/Non_veg_pickles/Gongura Prawns Pickle.png'), prices: { '1kg': 1400, '500g': 700, '250g': 350 } },
-  { id: 'nvp8', name: 'Mutton Boneless Pickle', price: 2000, type: 'non-veg', image: require('../assets/Non_veg_pickles/Mutton Boneless Pickle.png'), prices: { '1kg': 2000, '500g': 1000, '250g': 500 } },
-  { id: 'nvp9', name: 'Mutton Bones Pickle', price: 1800, type: 'non-veg', image: require('../assets/Non_veg_pickles/Mutton Bones Pickle.png'), prices: { '1kg': 1800, '500g': 900, '250g': 500 } },
-  { id: 'nvp10', name: 'Prawns Pickle', price: 1600, type: 'non-veg', image: require('../assets/Non_veg_pickles/Prawns Pickle.png'), prices: { '1kg': 1600, '500g': 800, '250g': 400 } },
+  { id: 'nvp1', name: 'Chicken Boneless Pickle', price: 1500, type: 'non-veg', image: require('../assets/Non_veg_pickles/Chicken Boneless Pickle.webp'), prices: { '1kg': 1500, '500g': 750, '250g': 400 } },
+  { id: 'nvp2', name: 'Chicken Bones Pickle', price: 1200, type: 'non-veg', image: require('../assets/Non_veg_pickles/Chicken Bones Pickle.webp'), prices: { '1kg': 1200, '500g': 600, '250g': 300 } },
+  { id: 'nvp3', name: 'Gongura Chicken Boneless Pickle', price: 1200, type: 'non-veg', image: require('../assets/Non_veg_pickles/Gongura Chicken Boneless Pickle.webp'), prices: { '1kg': 1200, '500g': 600, '250g': 300 } },
+  { id: 'nvp4', name: 'Gongura Chicken Bones Pickle', price: 1000, type: 'non-veg', image: require('../assets/Non_veg_pickles/Gongura Chicken Bones Pickle.webp'), prices: { '1kg': 1000, '500g': 500, '250g': 250 } },
+  { id: 'nvp5', name: 'Gongura Mutton Boneless', price: 1500, type: 'non-veg', image: require('../assets/Non_veg_pickles/Gongura Mutton Boneless Pickle.webp'), prices: { '1kg': 1500, '500g': 750, '250g': 500 } },
+  { id: 'nvp6', name: 'Gongura Mutton Bones', price: 1400, type: 'non-veg', image: require('../assets/Non_veg_pickles/Gongura Mutton Bones Pickle.webp'), prices: { '1kg': 1400, '500g': 700, '250g': 350 } },
+  { id: 'nvp7', name: 'Gongura Prawns Pickle', price: 1400, type: 'non-veg', image: require('../assets/Non_veg_pickles/Gongura Prawns Pickle.webp'), prices: { '1kg': 1400, '500g': 700, '250g': 350 } },
+  { id: 'nvp8', name: 'Mutton Boneless Pickle', price: 2000, type: 'non-veg', image: require('../assets/Non_veg_pickles/Mutton Boneless Pickle.webp'), prices: { '1kg': 2000, '500g': 1000, '250g': 500 } },
+  { id: 'nvp9', name: 'Mutton Bones Pickle', price: 1800, type: 'non-veg', image: require('../assets/Non_veg_pickles/Mutton Bones Pickle.webp'), prices: { '1kg': 1800, '500g': 900, '250g': 500 } },
+  { id: 'nvp10', name: 'Prawns Pickle', price: 1600, type: 'non-veg', image: require('../assets/Non_veg_pickles/Prawns Pickle.webp'), prices: { '1kg': 1600, '500g': 800, '250g': 400 } },
 ];
 
 // --- Combo Options Configuration ---
@@ -539,7 +540,7 @@ const ComboSection = () => {
                 className="combo-product-card"
                 onClick={() => handleProductSelection(pickle.id)}
               >
-                <img src={pickle.image} alt={pickle.name} style={styles.productImage} className="combo-product-image" />
+                <ResponsiveImage src={pickle.image} alt={pickle.name} style={styles.productImage} className="combo-product-image" width={200} height={200} />
                 <div style={styles.productInfo}>
                   <h4 style={styles.productName} className="combo-product-name">{pickle.name}</h4>
                   <p style={styles.productWeight}>250g Pack</p>
@@ -575,7 +576,7 @@ const ComboSection = () => {
                   className="combo-product-card"
                   onClick={() => handleProductSelection(pickle.id)}
                 >
-                  <img src={pickle.image} alt={pickle.name} style={styles.productImage} className="combo-product-image" />
+                  <ResponsiveImage src={pickle.image} alt={pickle.name} style={styles.productImage} className="combo-product-image" width={200} height={200} />
                   <div style={styles.productInfo}>
                     <h4 style={styles.productName} className="combo-product-name">{pickle.name}</h4>
                     <p style={styles.productWeight}>250g Pack</p>

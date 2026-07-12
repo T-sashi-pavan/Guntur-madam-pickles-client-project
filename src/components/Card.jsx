@@ -1,4 +1,5 @@
 import React from 'react'
+import ResponsiveImage from './ResponsiveImage'
 import './Card.css'
 
 const Card = ({product,index}) => {
@@ -12,9 +13,10 @@ const Card = ({product,index}) => {
               <span>₹{product.price}</span>
               <div>Shop Now</div>
           </div>
-          <img src={product.img} alt="" className='product-img' />
+          <ResponsiveImage src={product.img} alt={product.name} className='product-img' width={150} height={150} />
     </div>
   )
 }
 
 export default Card
+

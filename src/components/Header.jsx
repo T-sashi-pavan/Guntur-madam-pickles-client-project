@@ -8,8 +8,10 @@ import { useCart } from '../contexts/CartContext';
 import { CATEGORIES } from '../data/products';
 import LiveSearch from './LiveSearch';
 import { trackPhoneCall } from '../utils/analytics';
+import ResponsiveImage from './ResponsiveImage';
 import "./Header.css";
-import Logo from '../assets/logo.png';
+
+import Logo from '../assets/logo.webp';
 
 
 const Navbar = ({ onCartToggle }) => {
@@ -93,7 +95,7 @@ const Navbar = ({ onCartToggle }) => {
                 {/* Left Side - Logo and Brand */}
                 <div className="navbar-left">
                     <Link to="/" className="brand">
-                        <img src={Logo} alt="Guntur Madam Pickles Logo" className="logo" />
+                        <ResponsiveImage src={Logo} alt="Guntur Madam Pickles Logo" className="logo" width={50} height={50} />
                         <div className="brand-text">
                             <span className="brand-name">
                                 {getText('Guntur Madam', 'గుంటూరు మేడం')}

@@ -1,5 +1,5 @@
-import profile1 from '../assets/profile1.png'
-import profile2 from '../assets/profile2.png'
+import profile1 from '../assets/profile1.webp'
+import profile2 from '../assets/profile2.webp'
 
 export const TestimonialsData = [
     {

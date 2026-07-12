@@ -1,9 +1,11 @@
 import React from 'react'
 import './Footer.css'
-import Logo from '../assets/logo.png'
+import Logo from '../assets/logo.webp'
 import { useLanguage } from '../contexts/LanguageContext'
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp, FaInstagram, FaFacebook, FaShare } from 'react-icons/fa'
 import { trackPhoneCall, trackWhatsAppClick } from '../utils/analytics'
+import ResponsiveImage from './ResponsiveImage'
+
 
 
 const Footer = () => {
@@ -60,7 +62,7 @@ const Footer = () => {
                 {/* Company Info */}
                 <div className="footer-column">
                     <div className="footer-brand">
-                        <img src={Logo} alt="Guntur Madam Pickles" className="footer-logo" />
+                        <ResponsiveImage src={Logo} alt="Guntur Madam Pickles" className="footer-logo" width={60} height={60} />
                         <h3>Guntur Madam Pickles</h3>
                     </div>
                     <p className="footer-description">

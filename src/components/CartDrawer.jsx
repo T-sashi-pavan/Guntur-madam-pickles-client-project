@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useCart } from '../contexts/CartContext';
 import { trackBeginCheckout, trackPurchase, trackWhatsAppClick } from '../utils/analytics';
+import ResponsiveImage from './ResponsiveImage';
 import './CartDrawer.css';
+
 
 const CartDrawer = ({ isOpen, onClose }) => {
   const { language, t } = useLanguage();
@@ -152,10 +154,12 @@ const CartDrawer = ({ isOpen, onClose }) => {
                           {regularItems.map((item) => (
                             <div key={`${item.id}-${item.size}`} className="cart-item">
                               <div className="item-image">
-                                <img 
-                                  src={item.image} 
-                                  alt={language === 'en' ? item.name_en : item.name_te}
-                                />
+                                 <ResponsiveImage 
+                                   src={item.image} 
+                                   alt={language === 'en' ? item.name_en : item.name_te}
+                                   width={80}
+                                   height={80}
+                                 />
                               </div>
                               
                               <div className="item-details">
@@ -237,11 +241,13 @@ const CartDrawer = ({ isOpen, onClose }) => {
                                 <div className="combo-items-grid">
                                   {combo.items.map((item, index) => (
                                     <div key={`${combo.cartItemId}-item-${index}`} className="combo-item-card">
-                                      <img 
-                                        src={item.image} 
-                                        alt={item.name}
-                                        className="combo-item-image"
-                                      />
+                                       <ResponsiveImage 
+                                         src={item.image} 
+                                         alt={item.name}
+                                         className="combo-item-image"
+                                         width={60}
+                                         height={60}
+                                       />
                                       <div className="combo-item-info">
                                         <span className="combo-item-name">{item.name}</span>
                                         <span className="combo-item-size">250g</span>

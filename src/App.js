@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
@@ -11,14 +11,15 @@ import Navbar from './components/Header';
 import ProductModal from './components/ProductModal';
 import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
-
-// Pages
-import HomePage from './pages/HomePage';
-import CategoryPage from './pages/CategoryPage';
-import SearchResults from './pages/SearchResults';
-import ProductDetailsPage from './pages/ProductDetailsPage';
-import PrivacyPolicy from './pages/PrivacyPolicy';
 import AnalyticsTracker from './components/AnalyticsTracker';
+
+// Lazy Loaded Pages
+const HomePage = lazy(() => import('./pages/HomePage'));
+const CategoryPage = lazy(() => import('./pages/CategoryPage'));
+const SearchResults = lazy(() => import('./pages/SearchResults'));
+const ProductDetailsPage = lazy(() => import('./pages/ProductDetailsPage'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+
 
 
 function App() {
@@ -73,13 +74,28 @@ function App() {
 
             {/* Main Content */}
             <main className="main-content">
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/category/:category" element={<CategoryPage onProductClick={handleProductClick} />} />
-                <Route path="/search" element={<SearchResults onProductClick={handleProductClick} />} />
-                <Route path="/product/:id" element={<ProductDetailsPage />} />
-                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              </Routes>
+              <Suspense fallback={
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  minHeight: '50vh',
+                  fontSize: '1.2rem',
+                  color: '#6e4c38',
+                  fontWeight: '500'
+                }}>
+                  <div className="loading-spinner" style={{ marginRight: '10px' }}></div>
+                  Loading Guntur Madam Pickles...
+                </div>
+              }>
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/category/:category" element={<CategoryPage onProductClick={handleProductClick} />} />
+                  <Route path="/search" element={<SearchResults onProductClick={handleProductClick} />} />
+                  <Route path="/product/:id" element={<ProductDetailsPage />} />
+                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                </Routes>
+              </Suspense>
             </main>
 
             {/* Footer */}

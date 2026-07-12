@@ -5,7 +5,10 @@ import { PRODUCTS, getProductPrice } from '../data/products';
 import ProductCard from '../components/ProductCard';
 import SearchAndFilter from '../components/SearchAndFilter';
 import { trackSearch } from '../utils/analytics';
+import SEO from '../components/SEO';
+import { getBreadcrumbSchema } from '../utils/schema';
 import './SearchResults.css';
+
 
 
 const SearchResults = ({ onProductClick }) => {
@@ -103,8 +106,19 @@ const SearchResults = ({ onProductClick }) => {
     window.history.replaceState({}, '', '/search');
   };
 
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Search Results', url: '/search' }
+  ]);
+
   return (
     <div className="search-results-page">
+      <SEO 
+        title={searchQuery ? `Search Results for "${searchQuery}"` : 'Search Pickles'}
+        description={searchQuery ? `Search results for "${searchQuery}" on Guntur Madam Pickles. Find your favorite Andhra traditional pickles, spice powders, and sweets.` : 'Search and explore pickles, masalas, powders and sweets on Guntur Madam Pickles.'}
+        keywords="search pickles, find pickles, online pickles search"
+        schemas={[breadcrumbSchema]}
+      />
       <div className="search-header">
         <div className="search-hero">
           <h1 className={currentLanguage === 'te' ? 'font-telugu' : ''}>

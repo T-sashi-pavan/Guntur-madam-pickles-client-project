@@ -5,7 +5,10 @@ import { CATEGORIES, PRODUCTS, getProductPrice } from '../data/products';
 import ProductCard from '../components/ProductCard';
 import SearchAndFilter from '../components/SearchAndFilter';
 import { trackCategoryView } from '../utils/analytics';
+import SEO from '../components/SEO';
+import { getBreadcrumbSchema } from '../utils/schema';
 import './CategoryPage.css';
+
 
 
 // Category mappings for display names
@@ -144,6 +147,11 @@ const CategoryPage = ({ onProductClick }) => {
     ? (currentLanguage === 'te' ? categoryMapping.te : categoryMapping.en)
     : 'Products';
 
+  const breadcrumbSchema = categoryMapping ? getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: categoryMapping.en, url: `/category/${category}` }
+  ]) : null;
+
   if (!categoryMapping) {
     return (
       <div className="category-page">
@@ -156,6 +164,12 @@ const CategoryPage = ({ onProductClick }) => {
 
   return (
     <div className="category-page">
+      <SEO 
+        title={categoryName}
+        description={`Explore our delicious range of traditional ${categoryName} from Guntur Madam Pickles. Homemade Andhra recipe, organic, premium quality.`}
+        keywords={`${categoryName}, buy ${categoryName} online, homemade ${categoryName}, guntur ${categoryName}`}
+        schemas={[breadcrumbSchema]}
+      />
       <div className="category-header">
         <div className="category-hero">
           <h1 className={currentLanguage === 'te' ? 'font-telugu' : ''}>
