@@ -56,20 +56,10 @@ const Navbar = ({ onCartToggle }) => {
             te: 'కారం పొడులు',
             url: '/category/karam-podulu'
         },
-        [CATEGORIES.SWEETS]: {
-            en: 'Sweets',
-            te: 'స్వీట్స్',
-            url: '/category/sweets'
-        },
         [CATEGORIES.ANDHRA_SPECIAL]: {
             en: 'Andhra Special',
             te: 'ఆంధ్రా స్పెషల్',
             url: '/category/andhra-special'
-        },
-        [CATEGORIES.HOT]: {
-            en: 'Hot & Spicy',
-            te: 'కారం',
-            url: '/category/hot'
         }
     };
 

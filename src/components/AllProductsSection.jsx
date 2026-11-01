@@ -137,7 +137,7 @@ const AllProductsSection = () => {
       >
         <div className="category-filter-container">
           <div className="category-tabs">
-            {['ALL', ...Object.values(CATEGORIES)].map((category) => {
+            {['ALL', ...Object.values(CATEGORIES).filter(category => category !== CATEGORIES.SWEETS && category !== CATEGORIES.HOT)].map((category) => {
               const config = categoryConfig[category];
               const isSelected = selectedCategory === category;
               

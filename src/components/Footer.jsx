@@ -97,7 +97,6 @@ const Footer = () => {
                         <li><a href="/">{content.about}</a></li>
                         <li><a href="/category/veg">Veg Pickles</a></li>
                         <li><a href="/category/non-veg">Non-Veg Pickles</a></li>
-                        <li><a href="/category/sweets">Sweets</a></li>
                         <li><a href="/category/masalas">Masalas</a></li>
                         <li><a href="/category/powders">Powders</a></li>
                         <li><a href="/privacy-policy">{content.privacyPolicy}</a></li>
