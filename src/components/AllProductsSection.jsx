@@ -64,7 +64,9 @@ const AllProductsSection = () => {
   // Filter products by selected category
   const filteredProducts = useMemo(() => {
     if (selectedCategory === 'ALL') {
-      return PRODUCTS;
+      return PRODUCTS.filter(
+        product => product.category !== CATEGORIES.SWEETS && product.category !== CATEGORIES.HOT
+      );
     }
     return PRODUCTS.filter(product => product.category === selectedCategory);
   }, [selectedCategory]);
@@ -76,10 +78,12 @@ const AllProductsSection = () => {
     }
 
     const grouped = {};
-    Object.keys(CATEGORIES).forEach(key => {
-      const category = CATEGORIES[key];
-      grouped[category] = PRODUCTS.filter(p => p.category === category);
-    });
+    Object.keys(CATEGORIES)
+      .filter(key => CATEGORIES[key] !== CATEGORIES.SWEETS && CATEGORIES[key] !== CATEGORIES.HOT)
+      .forEach(key => {
+        const category = CATEGORIES[key];
+        grouped[category] = PRODUCTS.filter(p => p.category === category);
+      });
     return grouped;
   }, [selectedCategory]);
 
@@ -124,8 +128,8 @@ const AllProductsSection = () => {
         </h2>
         <p className="section-subtitle">
           {getText(
-            'Discover authentic Andhra pickles, spices, and sweets handcrafted with traditional recipes',
-            'సాంప్రదాయ వంటకాలతో హస్తకళతో తయారు చేసిన ప్రామాణిక ఆంధ్ర పచ్చడలు, మసాలాలు మరియు స్వీట్లను కనుగొనండి'
+            'Discover authentic Andhra pickles and spices handcrafted with traditional recipes',
+            'సాంప్రదాయ వంటకాలతో హస్తకళతో తయారు చేసిన ప్రామాణిక ఆంధ్ర పచ్చడలు మరియు మసాలాలను కనుగొనండి'
           )}
         </p>
       </div>
@@ -168,7 +172,9 @@ const AllProductsSection = () => {
         {selectedCategory === 'ALL' ? (
           // Show all products grouped by category
           <div className="grouped-products">
-            {Object.keys(CATEGORIES).map((key) => {
+            {Object.keys(CATEGORIES)
+              .filter(key => CATEGORIES[key] !== CATEGORIES.SWEETS && CATEGORIES[key] !== CATEGORIES.HOT)
+              .map((key) => {
               const category = CATEGORIES[key];
               const products = productsByCategory[category];
               const config = categoryConfig[category];
@@ -241,11 +247,15 @@ const AllProductsSection = () => {
       {/* Stats Section */}
       <div className="stats-section">
         <div className="stat-card">
-          <div className="stat-number">{PRODUCTS.length}+</div>
+          <div className="stat-number">
+            {PRODUCTS.filter(p => p.category !== CATEGORIES.SWEETS && p.category !== CATEGORIES.HOT).length}+
+          </div>
           <div className="stat-label">{getText('Products', 'ఉత్పత్తులు')}</div>
         </div>
         <div className="stat-card">
-          <div className="stat-number">{Object.keys(CATEGORIES).length}</div>
+          <div className="stat-number">
+            {Object.values(CATEGORIES).filter(c => c !== CATEGORIES.SWEETS && c !== CATEGORIES.HOT).length}
+          </div>
           <div className="stat-label">{getText('Categories', 'వర్గాలు')}</div>
         </div>
         <div className="stat-card">

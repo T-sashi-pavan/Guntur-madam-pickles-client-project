@@ -11,9 +11,9 @@ const HomePage = () => {
   return (
     <div>
       <SEO 
-        title="Authentic Andhra Pickles & Sweets"
-        description="Guntur Madam Pickles offers authentic traditional pickles, karam podulu, and traditional sweets made in Guntur, Andhra Pradesh. 100% organic and homemade taste."
-        keywords="andhra pickles online, buy pickles online, guntur pickles, homemade pickles, spice powders, andhra sweets, organic pickles"
+        title="Authentic Andhra Pickles & Spices"
+        description="Guntur Madam Pickles offers authentic traditional pickles and karam podulu made in Guntur, Andhra Pradesh. 100% organic and homemade taste."
+        keywords="andhra pickles online, buy pickles online, guntur pickles, homemade pickles, spice powders, organic pickles"
       />
       <HeroSection />
       

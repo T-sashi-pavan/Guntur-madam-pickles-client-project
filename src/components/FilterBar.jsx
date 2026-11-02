@@ -35,9 +35,7 @@ const FilterBar = ({
     { value: CATEGORIES.NON_VEG, label: { en: 'Non-Veg Pickles', te: 'మాంసం పచ్చడి' } },
     { value: CATEGORIES.SPECIALS, label: { en: 'Our Specials', te: 'మా స్పెషల్స్' } },
     { value: CATEGORIES.KARAM_PODULU, label: { en: 'Spice Powders', te: 'కారం పొడులు' } },
-    { value: CATEGORIES.SWEETS, label: { en: 'Sweets', te: 'స్వీట్స్' } },
-    { value: CATEGORIES.ANDHRA_SPECIAL, label: { en: 'Andhra Special', te: 'ఆంధ్రా స్పెషల్' } },
-    { value: CATEGORIES.HOT, label: { en: 'Hot & Spicy', te: 'కారం' } }
+    { value: CATEGORIES.ANDHRA_SPECIAL, label: { en: 'Andhra Special', te: 'ఆంధ్రా స్పెషల్' } }
   ];
 
   return (
