@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AiOutlineSearch, AiOutlineDollar, AiOutlineClear } from 'react-icons/ai';
+import { AiOutlineSearch, AiOutlineDollar, AiOutlineClear, AiOutlineSortAscending } from 'react-icons/ai';
 import { useLanguage } from '../contexts/LanguageContext';
 import './SearchAndFilter.css';
 
@@ -41,23 +41,27 @@ const SearchAndFilter = ({
   ];
 
   return (
-    <div className="search-filter-bar">
-      <div className="search-filter-container">
+    <div className="sf-bar">
+      <div className="sf-container">
         
         {/* Search Section */}
-        <div className="search-section">
-          <div className="search-input-wrapper">
-            <AiOutlineSearch className="search-icon" />
+        <div className="sf-field sf-search-field">
+          <label className={`sf-label ${currentLanguage === 'te' ? 'font-telugu' : ''}`}>
+            <AiOutlineSearch className="sf-icon" />
+            {getText('Search Products', 'ప్రొడక్ట్స్ వెతకండి')}
+          </label>
+          <div className="sf-input-wrapper">
+            <AiOutlineSearch className="sf-search-icon" />
             <input
               type="text"
-              className={`search-input ${currentLanguage === 'te' ? 'font-telugu' : ''}`}
+              className={`sf-input ${currentLanguage === 'te' ? 'font-telugu' : ''}`}
               placeholder={getText('Search products...', 'ప్రొడక్ట్స్ కోసం వెతకండి...')}
               value={localSearchQuery}
               onChange={handleSearchChange}
             />
             {localSearchQuery && (
               <button 
-                className="clear-search-btn"
+                className="sf-clear-search-btn"
                 onClick={() => {
                   setLocalSearchQuery('');
                   onSearchChange('');
@@ -71,13 +75,13 @@ const SearchAndFilter = ({
         </div>
 
         {/* Price Filter Section */}
-        <div className="filter-section">
-          <label className={`filter-label ${currentLanguage === 'te' ? 'font-telugu' : ''}`}>
-            <AiOutlineDollar className="filter-icon" />
+        <div className="sf-field sf-price-field">
+          <label className={`sf-label ${currentLanguage === 'te' ? 'font-telugu' : ''}`}>
+            <AiOutlineDollar className="sf-icon" />
             {getText('Price Range', 'ధర పరిధి')}
           </label>
           <select
-            className={`filter-select ${currentLanguage === 'te' ? 'font-telugu' : ''}`}
+            className={`sf-select ${currentLanguage === 'te' ? 'font-telugu' : ''}`}
             value={priceRange}
             onChange={(e) => onPriceRangeChange(e.target.value)}
           >
@@ -90,13 +94,13 @@ const SearchAndFilter = ({
         </div>
 
         {/* Sort Section */}
-        <div className="filter-section">
-          <label className={`filter-label ${currentLanguage === 'te' ? 'font-telugu' : ''}`}>
-            <AiOutlineSearch className="filter-icon" />
+        <div className="sf-field sf-sort-field">
+          <label className={`sf-label ${currentLanguage === 'te' ? 'font-telugu' : ''}`}>
+            <AiOutlineSortAscending className="sf-icon" />
             {getText('Sort By', 'క్రమబద్ధీకరించు')}
           </label>
           <select
-            className={`filter-select ${currentLanguage === 'te' ? 'font-telugu' : ''}`}
+            className={`sf-select ${currentLanguage === 'te' ? 'font-telugu' : ''}`}
             value={sortBy}
             onChange={(e) => onSortChange(e.target.value)}
           >
@@ -109,9 +113,10 @@ const SearchAndFilter = ({
         </div>
 
         {/* Clear Filters */}
-        <div className="filter-actions">
+        <div className="sf-field sf-action-field">
+          <label className="sf-label sf-label-spacer" aria-hidden="true">&nbsp;</label>
           <button
-            className={`clear-filters-btn ${currentLanguage === 'te' ? 'font-telugu' : ''}`}
+            className={`sf-clear-btn ${currentLanguage === 'te' ? 'font-telugu' : ''}`}
             onClick={onClearFilters}
           >
             {getText('Clear All', 'అన్నీ క్లియర్ చేయండి')}

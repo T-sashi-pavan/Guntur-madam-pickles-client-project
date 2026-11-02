@@ -129,7 +129,6 @@ const Navbar = ({ onCartToggle }) => {
                       href="tel:+917702721323" 
                       className="phone-number" 
                       onClick={() => trackPhoneCall()}
-                      style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}
                     >
                         <FaPhoneAlt className="phone-icon" />
                         <span>+91 77027 21323</span>

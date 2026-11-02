@@ -535,47 +535,88 @@
   }
   
   .mobile-menu-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .phone-number {
-    display: none;
+    display: none !important;
   }
   
   .navbar {
-    padding: var(--spacing-xs) var(--spacing-sm);
+    padding: 10px var(--spacing-sm);
   }
 }
 
 @media (max-width: 768px) {
   .navbar {
-    padding: var(--spacing-xs);
+    padding: 8px 16px;
+    min-height: 58px;
+    gap: 8px;
+  }
+  
+  .navbar-left {
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .logo {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    margin-right: 0;
+  }
+  
+  .brand-text {
+    min-width: 0;
+    overflow: hidden;
   }
   
   .brand-name {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    line-height: 1.15;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .brand-tagline {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
+    line-height: 1;
+    white-space: nowrap;
   }
   
   .navbar-right {
-    gap: var(--spacing-xs);
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
   
-  /* Show search toggle on mobile */
+  /* Mobile action buttons */
   .search-toggle {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 1.15rem;
     background: linear-gradient(135deg, var(--secondary-gold), var(--primary-gradient-end));
     color: var(--text-light);
     border: none;
-    padding: var(--spacing-xs);
-    border-radius: 50%;
-    font-size: 1.2rem;
     cursor: pointer;
+    box-shadow: 0 3px 10px rgba(242, 147, 75, 0.25);
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(242, 147, 75, 0.3);
   }
   
   .search-toggle:hover {
@@ -583,74 +624,140 @@
     box-shadow: 0 6px 20px rgba(242, 147, 75, 0.4);
   }
   
-  .logo {
-    height: 35px;
+  .language-toggle {
+    height: 32px;
+    padding: 0 8px;
+    border-radius: 16px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    gap: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    color: #6d3b20;
+    border: 1.5px solid rgba(242, 147, 75, 0.35);
+  }
+
+  .cart-button {
     width: 35px;
+    height: 35px;
+    min-width: 35px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(242, 147, 75, 0.25);
+  }
+
+  .mobile-menu-toggle {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    padding: 0;
+    border-radius: 8px;
+    font-size: 1.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #6d3b20;
+  }
+
+  .search-bar-container {
+    padding: 14px;
+    border-radius: 0 0 16px 16px;
   }
 }
 
 @media (max-width: 480px) {
+  .navbar {
+    padding: 6px 12px;
+    min-height: 54px;
+    gap: 6px;
+  }
+  
   .logo {
-    height: 32px;
     width: 32px;
+    height: 32px;
+    min-width: 32px;
   }
   
   .brand-name {
-    font-size: 1rem;
+    font-size: 0.98rem;
   }
   
   .brand-tagline {
-    font-size: 0.65rem;
+    font-size: 0.62rem;
+  }
+
+  .navbar-right {
+    gap: 6px;
   }
   
-  .mobile-menu-content {
-    width: 280px;
-  }
-  
+  .search-toggle,
   .cart-button,
-  .language-toggle,
-  .icon-button {
-    padding: var(--spacing-xs);
-    font-size: 1.1rem;
+  .mobile-menu-toggle {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    font-size: 1.05rem;
   }
   
   .language-toggle {
-    padding: 6px 8px;
-    font-size: 0.75rem;
+    height: 30px;
+    padding: 0 7px;
+    font-size: 0.72rem;
+  }
+
+  .mobile-menu-content {
+    width: 280px;
   }
 }
 
 @media (max-width: 360px) {
   .navbar {
-    padding: var(--spacing-xs) 8px;
+    padding: 6px 8px;
+    gap: 4px;
   }
   
   .logo {
-    height: 28px;
     width: 28px;
+    height: 28px;
+    min-width: 28px;
   }
   
   .brand-name {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
   }
   
   .brand-tagline {
-    font-size: 0.6rem;
+    font-size: 0.58rem;
   }
   
-  .mobile-menu-content {
-    width: 260px;
+  .navbar-right {
+    gap: 4px;
   }
   
+  .search-toggle,
   .cart-button,
-  .icon-button {
-    font-size: 1rem;
-    padding: 6px;
+  .mobile-menu-toggle {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    font-size: 0.95rem;
   }
   
   .language-toggle {
-    padding: 4px 6px;
-    font-size: 0.7rem;
+    height: 28px;
+    padding: 0 5px;
+    font-size: 0.68rem;
+  }
+
+  .mobile-menu-content {
+    width: 260px;
   }
 }
 
